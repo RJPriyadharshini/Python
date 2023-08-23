@@ -2,13 +2,13 @@ list1 = [10, 20, [300, 400, [5000, 6000], 500], 30, 40]
 list1[2][2].append(7000)
 print(list1)
 
-x = "hel"
+x = "hello"
 for k in x:
     print(k)
     print("hi")
     print("yes")
 
-table = [10, 20, 50, 100, 500]
+table = [10, 200, 50, 100, 500]
 inhand = 0
 for x in table:
     if x > inhand:
