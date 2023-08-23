@@ -127,7 +127,7 @@ for item,qty in order.items():
     subtotal=qty*price
     print(f'{item:}: Rs.{price:} * {qty} = Rs.{subtotal:}')
 
-pnames=["Pavi","Arun","Raj","Jumie"]
+pnames=["Pavithra","Arun","Raja","July"]
 def names(x):
     for k in x:
         j= pnames[0:4]
