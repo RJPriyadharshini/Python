@@ -1,6 +1,0 @@
-f = open('bill.txt', 'r')
-print(f.name,f.mode,f.readable(),f.writable())
-f.read()
-f.read()
-f.seek(6)
-f.read(8)
