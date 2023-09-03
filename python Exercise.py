@@ -47,7 +47,7 @@ def fun(a, b, c, d, e, f, g):
 
 
 # Call the function with arguments
-fun(11, 12, 13, 14, 14, 16, 17, 18)
+fun(11, 12, 13, 14, 14, 16, 17)
 
 
 """Question  5:
@@ -180,7 +180,7 @@ print("result is",first_last_same(numbers_x))
 numbers_y = [75, 65, 35, 75, 30]
 print("result is", first_last_same(numbers_y))
 
-@
+
 #question 12ad
 
 #   Iterate the given list of numbers and print only those numbers which are divisible by 5
@@ -197,6 +197,48 @@ def list(num):
             print("not divisible by 5")
 
 list([10, 20, 33, 46, 55])
+
+#QUESTION 13
+# Write a program to find how many times substring “Emma” appears in the given string.
+#Emma appeared 2 times
+
+str_x = "Emma is good developer. Emma is a writer"
+if "Emma" in str_x:
+    z=str_x.count("Emma")
+    print(f'Emma Appeared {z} times ')
+else:
+    print("none")
+
+# QUESTION 4
+# MULTIPLY
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(i * j, end=" ")
+    print("\t\t")
+
+
+#question 14
+
+
+for i in range(6, 0, -1):
+    for j in range(0, i - 1):
+        print("*", end=' ')
+    print(" ")
+
+
+#question 1555
+base = 2
+exponent = 5
+
+def fun(base,exponent):
+    if base==2:
+        z=base**exponent
+        print(f'2 raises to the power of 5:{z}')
+    else:
+         print("none")
+
+fun(2,5)
+
 
 
 
