@@ -1,19 +1,17 @@
-for i in range(6, 0, -1):
-    for j in range(0, i - 1):
-        print("*", end=' ')
-    print(" ")
+string = "Guvi Geeks Network Private Limited"
+vowels = ["a", "e", "i", "o", "u"]
+z = ""
+
+for i in string:
+    if i not in vowels:
+        z = z + i
+print(z)
 
 
+# 2 Create a pyramid of numbers from 1 to 20 using for loop
 
-base = 2
-exponent = 5
+for pyramid in range(1,21):      # 1 2 3 4
+    for i in range(1,pyramid-1):     #
+        print(i)
 
-def fun(base,exponent):
-    if base==2:
-        z=base**exponent
-        print(f'2 raises to the power of 5:{z}')
-    else:
-         print("none")
-
-fun(2,5)
 
