@@ -126,7 +126,7 @@ while i<=5:
 
 
 #47
-num1 = int(input("enter a num: "))
+""" num1 = int(input("enter a num: "))
 num2 = int(input("enter a num: "))
 s=num1+num2
 if type(s)==int:
@@ -140,10 +140,80 @@ if type(s)==int:
             s=s + num
             print(s)
 else:
-    print(s)
+    print(s) """
 
 #48
-rdrt,y
+"""again="y"
+count=0
+while again=="y":
+    name=input("enter name: ")
+    
+    print(name,"invited")
+    count=count+1
+    again=input("add another one: ")
+print("you have", count,"people coming to party")
+"""
+#49
+import random
+num=random.random()
+num=num*100
+print(num)
+
+num=random.randint(0,8)
+print(num)
+num=random.randrange(0,100,10)
+print(num)
+
+colour=random.choice(["red","blue","green"])
+print(colour)
+
+#52
+x=random.randint(1,100)
+print(x)
+
+#53
+fruits=random.choice(["banana","orange","grapes","apple","gauva"])
+print(fruits)
+#54
+"""toss=random.choice(["head","tail"])
+user=input("guess value: ")
+if toss==user:
+    print("you win")
+else:
+    print("bad luck")
+print(toss)"""
+
+#55
+
+"""num=random.randrange(1,6)
+user=input("pick num: ")
+while user==num:
+    if num==user:
+       print("well done")
+    else:
+       print("too high or too low")"""
+
+#56
+
+import random
+numm=random.randint(1,10)
+i=0
+if i==0:
+    while numm!=i:
+        user = input("pick num: ")
+        print(user)
+        print(numm)
+else:
+    print("none")
+
+
+
+
+
+
+
+
+
 
 
 
