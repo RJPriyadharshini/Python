@@ -51,11 +51,112 @@ else:
     newword= word + "way"
 print(newword.lower()) """
 
-import math
+"""import math
 print(math.sqrt(9))
-print(math.pi)
+print(math.pi)"""
 
-print(math.floor(2.45))
+#36
+""" name = input("enter the name: ")
+number=int(input("enter a num: "))
+repeated_name = (name + ' ') * number
+print(repeated_name, number) """
+
+#37
+""" name = input("enter the name: ")
+for i in name:
+    print(i)"""
+
+#40
+"""number=int(input("enter a num: "))
+if number<50:
+    for i in range(50,number,-1):
+        print(i)"""
+
+#42
+"""total=0
+if total<=5:
+    num=int(input("enter a num: "))
+    total=total+1
+print("done")
+
+
+x = input("Enter 'up': ")
+number = int(input("Enter a number: "))
+
+if x == "up":
+    if number >= 1:
+        i = 1wa
+        while i <= number:
+            print(i)
+            i += 1
+    else:
+        print("Error: 'number' should be a positive integer.")
+else:
+    print("None") """
+
+#44
+
+"""number=int(input("enter a num: "))
+if number<=10:
+    for i in range(0,number):
+        name = input('enter a name: ')
+        print(f'{name} has been invited')
+
+else:
+    print("More than 10")"""
+
+
+#45
+"""total=0
+while total<=50:
+    number = int(input("enter a num: "))
+    total = total + number
+    print(f'the total is : {total}')"""
+
+#46
+
+
+"""i=1
+while i<=5:
+    number = int(input("enter a num: "))
+    i=i+number
+    print(number)
+    if number > 5:
+        print(f'the last number entered was a {number}')"""
+
+
+#47
+num1 = int(input("enter a num: "))
+num2 = int(input("enter a num: "))
+s=num1+num2
+if type(s)==int:
+    while type(s)==int:
+        user = input("enter another number (y/n): ")
+        if user=="n":
+            print(s)
+            break
+        else:
+            num = int(input("enter a num: "))
+            s=s + num
+            print(s)
+else:
+    print(s)
+
+#48
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
