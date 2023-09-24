@@ -185,27 +185,47 @@ print(toss)"""
 
 #55
 
-"""num=random.randrange(1,6)
-user=input("pick num: ")
-while user==num:
-    if num==user:
-       print("well done")
+"""num=random.randint(1,6)
+user=int(input("pick num: "))
+print(num)
+if num==user:
+    print("well done")
+elif user>num:
+    print("too high")
+    guess=int(input("enter num: "))
+    if guess==num:
+        print("correct")
     else:
-       print("too high or too low")"""
+        print("you lose")
+elif user<num:
+    print("too low")
+    guess=int(input("enter guess: "))
+    if guess==num:
+        print("correct")
+    else:
+        print("you lose") """
 
 #56
-
-import random
+"""import random
 numm=random.randint(1,10)
-i=0
-if i==0:
-    while numm!=i:
-        user = input("pick num: ")
-        print(user)
-        print(numm)
-else:
-    print("none")
+correct=False
+print(numm)
+while correct==False:
+    guess= int(input("pick num: "))
+    if guess==num:
+        correct= True"""
 
+
+
+
+import turtle
+turtle.shape("turtle")
+for i in range(0,10):
+    turtle.right(36)
+    for i in range(0,5):
+        turtle.forward(100)
+        turtle.right(72)
+turtle.exitonclick()
 
 
 
