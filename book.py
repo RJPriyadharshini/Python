@@ -361,6 +361,106 @@ programms[3] = show  # Replace the third item with the user's input
 print(programms) """
 
 
+#79
+"""nums=[]
+num1=int(input("enter num1: "))
+num2=int(input("enter num2: "))
+num3=int(input("enter num3: "))
+nums=[num1,num2,num3]
+print(nums)
+need_number=input("enter y/n: ")
+if need_number=="y":
+    nums.append(num3)
+    print(nums)
+else:
+    new_nums = nums[:-1]  # Create a new list without the last value
+    print(new_nums)
+"""
+# or wrong(doubt)
+
+"""nums=[]
+count=0
+while count<3:
+    num=int(input("enter num: "))
+    nums.append(num)
+    print(nums)
+    count=count+1
+
+last_num=(input("enter last_num y/n: ")
+if need_number=="y":
+    nums.append(num3)
+    print(nums)
+else:
+    new_nums = nums[:-1]  # Create a new list without the last value
+    print(new_nums) """
+
+#80
+
+"""first_name = "pavithra"
+print(len(first_name))
+sur_name="Pavi"
+print(len(sur_name))
+full_name=first_name + "  " + sur_name
+print(full_name)
+print(len(full_name))"""
+
+"""def fullname(first,sur):
+    print(len(first))
+    print(len(sur))
+    full_name = first+ "  " + sur
+    print(len(full_name))
+fullname("pavithra","govindaraj")
+"""
+
+#81
+
+"""fav_sub="Maths"
+for i in fav_sub:
+    print(i,end="-") """
+
+#82
+
+"""fav_line="twinklw twinkle little star"
+start=int(input("enter start: "))
+end=int(input("enter end: "))
+i=fav_line[start+1:end]
+print(i)"""
+
+#83
+"""guess=input("enter input: ")
+
+if guess.isupper() is True:
+    print(guess)
+    print("done")
+else:
+    while True:
+        guess1 = input("enter input: ")
+        if guess1.islower() is True:
+            print(guess1)
+        else:
+            if guess1.isupper() is True:
+               print(guess1)
+               break"""
+
+
+#84
+
+guess=input("enter input: ")
+
+if guess.isupper() is True:
+    print(guess[0:2])
+    print("done")
+else:
+    while True:
+        guess1 = input("enter input: ")
+        if guess1.islower() is True:
+            print(guess1)
+        else:
+            if guess1.isupper() is True:
+               print(guess1[0:1])
+               break
+
+
 
 
 
