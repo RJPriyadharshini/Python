@@ -423,8 +423,7 @@ for i in fav_sub:
 """fav_line="twinklw twinkle little star"
 start=int(input("enter start: "))
 end=int(input("enter end: "))
-i=fav_line[start+1:end]
-print(i)"""
+print(fav_line[start:end])"""
 
 #83
 """guess=input("enter input: ")
@@ -440,25 +439,89 @@ else:
         else:
             if guess1.isupper() is True:
                print(guess1)
-               break"""
+               break 
+               
+               OR
+               
+msg=input("enter msg in uppercase: ")
+tryagain=False
+while tryagain==False:
+    if msg.isupper():
+        print("Thank you")
+        tryagain=True
+    else:
+        print("tryagain")
+        msg = input("enter msg in uppercase: ")  """
 
 
-#84
 
-guess=input("enter input: ")
 
-if guess.isupper() is True:
-    print(guess[0:2])
-    print("done")
+#85
+
+"""name=input("enter name: ")
+count=0
+name=name.lower()
+for i in name:
+    if i=="a" or i=="e" or i=="i" or i=="o" or i=="u":
+        count=count+1
+print(count)"""
+
+
+
+#86
+
+"""password=input("enter password: ")
+pass1=input("enter password: ")
+if password==pass1:
+    print("Thank you")
+elif password.lower()==pass1.lower():
+    print("Case should be changed")
 else:
-    while True:
-        guess1 = input("enter input: ")
-        if guess1.islower() is True:
-            print(guess1)
-        else:
-            if guess1.isupper() is True:
-               print(guess1[0:1])
-               break
+    print("incorrect")  """
+
+#87
+
+"""word=input("enter word: ")
+if type(word)==str:
+    rev_str=word[::-1]
+for i in rev_str:
+    print(i) 
+    
+
+    #or
+
+word=input("enter word: ")  #hello
+length=len(word)   #5
+num=1
+for x in word:
+    position=length-num   #5-1        5-2  
+    letter=word[position]   #4   3
+    print(letter)      #o l
+    num=num+1         #2  3  """
+
+#88
+"""from array import *
+num=array('i',[23,45,6,788,1234])
+i=sorted(num)
+print(i[::-1])"""
+
+#89
+from array import *
+import random
+num=array('i',[23,45,6,788,1234,34,76,566,89,98])
+x=random.random()
+print(x)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

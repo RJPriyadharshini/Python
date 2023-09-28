@@ -1,78 +1,73 @@
-string = "Guvi Geeks Network Private Limited"
-vowels = ["a", "e", "i", "o", "u"]
-z = ""
+# check num odd or even
+"""count=0
+while count<3:
+    number = int(input("enter number: "))
+    count = count + 1
+    if number%2==0:
+        print("Even")
+    else:
+        print("Odd")"""
 
-for i in string:
-    if i not in vowels:
-        z = z + i
-print(z)
+#max num
 
+"""num1=int(input("enter num1: "))
+num2=int(input("enter num2: "))
+if num1>num2:
+    print(f'The maximun num is : {num1}')
+else:
+    print(f'The maximun num is : {num2}')
+"""
 
-# 2 Create a pyramid of numbers from 1 to 20 using for loop
+#prime num check
 
-for pyramid in range(1,22):      # 1 2 3 4
-    for i in range(1,pyramid):      # 0,1 0,2 0,3
-        print(i, end = " ")
-    print()
-
-# 3 create a fun that takes a string and returns a new string with all the vowels removed
-
-
-
-def fun(string):
-    y = ""
-    vowels = ["a", "e", "i", "o", "u"]
-    for i in string:
-        if i not in vowels:
-            y=y+i
-    print(y)
-fun("Priyadharshini")
-
-
-
-# 4 create a fun that takes a string and returns a number of unique char in it
-
-def fun(string):      #
-    j=""
-    for i in string:
-        if i not in j:
-            j=j+i
-    print(j)
-fun("Guvi Geeks Network Private Limited")
+"""def prime(num):
+    if num<1:
+        print("Not valid")
+    for i in range(2,num):
+        if num%i==0:
+            return False
+    return True
+num=int(input("enter num: "))
+if prime(num):
+    print(f'{num} is prime')
+else:
+    print(f'{num} is not prime')"""
 
 
-# 9 write a fun that takes a string and returns number of words in it
+#Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number.
 
-def function(*list):
-    count = 0  # Initialize a counter for strings
-    for i in list:
-        if type(i) == str:  # Check if the element is a string
-            count += 1  # Increment the counter
-    print(count)
-function("pavi", "priya", "praveen", "janagi", 1, 2, 3, 4, 5)
+"""def find(num):
+        for q in num:
+            i=[]
+            if q%2==0:
+                i.append(q)
+                print(q)
 
-#  write a fun that takes a str and returns most frequent char in it
-
-def fun(char):
-    z=""
-    for i in char:
-        if type(i) == str:
-            z=z+i
-    print(z)
-
-char=("a","e","e","i","i","o","z","i",1,2,3,4,5)
+find(range(1000,3001))    """
 
 
+#Question:
+"""Question:
+Write a program that accepts a sentence and calculate the number of letters and digits.
+Suppose the following input is supplied to the program:
+hello world! 123
+Then, the output should be:
+LETTERS 10
+DIGITS 3   """
 
+"""def cal(letter,digits):
+    print(len(letter.strip(" ")))
+    print(len(digits))
 
-
-
-
-
-
-
-
-
+cal("hello world","123")
+"""
+n=5
+array=[1,2,2,2,2,3]
+z=[]
+for i in array:
+    if z!=i:
+        z=array
+        print(z)
 
 
 
