@@ -61,17 +61,21 @@ DIGITS 3   """
 
 cal("hello world","123")
 """
-n=5
-array=[1,2,2,2,2,3]
-z=[]
-for i in array:
-    if z!=i:
-        z=array
-        print(z)
 
 
+rows = 20
 
-#
+# Create a for loop to iterate over the rows
+for i in range(1, rows + 1):
+    # Create a nested for loop to iterate over the columns
+    for j in range(1, i + 1):
+        # Print the current number
+        print(j, end=" ")
+
+    # Print a new line at the end of each row
+    print()
+
+
 
 
 
