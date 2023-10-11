@@ -156,6 +156,40 @@ print("Sum of first and last digit:", result)  # Print the result
 
 #5
 
+def distribute_mangoes(mangoes, students):
+  mangoes.sort(reverse=True)
+  student_mangoes = [0] * students
+  for i in range(len(mangoes)):
+    student_mangoes[i % students] += mangoes[i]
+  return max(student_mangoes) - min(student_mangoes)
+mangoes = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+students = 5
+
+difference = distribute_mangoes(mangoes, students)
+
+print(difference)
 
 
+#6
 
+def merge_lists(list1, list2, list3):
+    merged_list = list1 + list2 + list3
+    unique_elements = list(set(merged_list))      # set not allow duplicates
+    return unique_elements
+
+result = merge_lists([1, 2, 3], [3, 4, 5], [5, 6, 7, 8])
+print(result)
+
+#7
+
+def first_non_repeating_number(list1):
+  seen = set()
+  for number in list1:
+    if number not in seen:
+      return number
+    seen.add(number)
+  return -1
+
+list1 = [1, 2, 3, 4, 5, 1, 2, 3]
+first_non_repeating_number = first_non_repeating_number(list1)
+print(first_non_repeating_number)
