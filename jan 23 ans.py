@@ -4,6 +4,7 @@ bill = ["soap,3,13", "brush,15,9", "paste,35,9"]
 i=0
 for k in bill:
     y=k.split(",")
+    print(y)
     y=int(y[1])*int(y[2])
     k=k+","+str(y)
     bill[i]=k
@@ -21,6 +22,15 @@ for i in address:
     address1.append(i)
 print(address1)
 
+address = ['No.3,4th street', '2/19,corner street', '19-16,big street,(via) truck-road']
+char=[",'/-."]
+for k in address:
+    for j in k:
+        if j in char:
+            print("",end="")
+        else:
+            print(j,end="")
+    print("",end="")
 
 # Creating infinite loop not possible in for loop but it possible in while loop
 x=0
@@ -33,9 +43,6 @@ while x<2:
     x=x+1
 
 
-
-Z=1000000000
-print(Z.bit_length())
 
 
 
