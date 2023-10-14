@@ -5,7 +5,7 @@
     " Data type in python .. key value format       keys must be unique     ordered   heterogeneous(store multiple values)   for list,tuple where the index number act as key      \n"
     "  ")
 
-a={'name': 'Pavi',"age": "22","job": "testing"}
+a={'name': 'Pavi',"age": "23","job": "testing"}
 print(f'name = {a["name"]}')
 a["name"]="Priya"
 print(a)
@@ -20,6 +20,7 @@ print(stu.values())
 print(stu.items())   # combo of key and value
 stu.popitem()
 print(stu)
+
 
 
 

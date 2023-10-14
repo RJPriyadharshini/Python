@@ -1,4 +1,4 @@
-# look up   interview questions
+# look up   interview questions             DOUBT
 fruitprice = {"apple": 40, "potato": 90, "grapes": 50}
 vegprice = {"carrot": 60, "potato": 40, "tomato": 80}
 
