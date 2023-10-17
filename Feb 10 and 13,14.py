@@ -39,7 +39,7 @@ def fun(x):
 
 print(fun(7))
 
-#lambda - map take multiple elements
+#lambda - map take multiple elements,iterable
 
 print(list(map(fun, x)))
 
@@ -56,35 +56,49 @@ print(list(map(fun,x)))
 
 print(list(filter(fun,x)))   # True - it add element to the list  or not written
 
+def big(x,y):
+    if x>y:
+        return x
+    else:
+        return y
 
-z = [1, 2, 3, 4]
-v = []
-for v in z:
-    v = v + 5
-    print(v)
+print(big(50,big(20,big(30,40))))    #recursion
 
-x = [10, 20, 30, 40]
-print(list(map(lambda z: z + 5, x)))
+c=[10,30,40,100,56]
+print(sum(c))
+print(list(map(lambda t:t+5,c)))
+x=(list(map(lambda t:t+5,c)))  #single time use lambda(temp fun , not stored in the memory)
+print(sum(x))
+
+#lambda - support functional program
+
+s=lambda x,y:x if x>y else y       # used comprehension( we can give only one condition is allowed)
+print(s(10,5))
 
 
-
-gst = lambda price: price * 18 / 100
-print(gst(170))
 
 
 # constructor = specialized function
 
-class myclass:
-    def __init__(self, x, y):
-        self.x = x
+class datetime:
+    def __init__(self, d, m,y):      #constructor , initializer
+        self.d = d
+        self.m = m
         self.y = y
+    def __repr__(self):               #represental
+        return f'{self.d}/{self.m}/{self.y}'
 
-    def __repr__(self): #represental
-        return (self.x + self.y)
-
-
-
+obj=datetime(1,3,2000)
+print(obj)
 # __ __ called dunder methods or magic methods
 
+x=5
+y=10
+print(dir(x))         # display all the functions
+print(x.__add__(y))
+print(x.__mul__(y))
 
+
+class cal():
+    def __mul__(self):
 
