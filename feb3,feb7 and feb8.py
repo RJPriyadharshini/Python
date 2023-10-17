@@ -118,10 +118,42 @@ def factorial(x):
     elif x==0:
         return 1
     else:
-        for i in range(1,x+1):    #(1,5)
-            fact=fact*i           #(1
+        for i in range(1,x+1):    #(1,5)     (1,6)
+            fact=fact*i           #(1*1*2*3*4)    (1*1*2*3*4*5)
         return fact
 
 print(factorial(4))
+print(factorial(5))
+
+def letter(x):
+    y=""
+    for i in x:
+        if i=="l":
+            y=y+"z"
+        else:
+            y=y+i
+    return y
+print(letter("hello"))
+
+
+def fun(*l):                     # def fun(*l) by this we can pass multilple arguments,type is tuple
+    print(type(l))
+    inhand=l[0]
+    for k in l:
+        if inhand<k:
+            inhand=k
+    return k
+print(fun((10,20,30,40)))
+
+
+
+def sub(**x):   # ** use multiple arguments ,
+    print(type(x))
+    return x
+
+result = sub(mat=100, sci=80, soc=85)
+print(result)
+
+
 
 

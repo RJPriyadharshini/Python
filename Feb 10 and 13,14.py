@@ -1,27 +1,28 @@
-import statistics
-
-print(statistics.mean([10, 40, 60]))
-
+#FEB 10
 
 def ids(x):
     for k in range(x):
         print(f'NUM {k}')
 
 
-ids(11)
+
+# by using YIELD keyword we can pause the function , yield keyword it could store the function in the memory
+#whenever we need we can call the fun by using obj or variable
+def ids(x):
+    for k in range(x):
+        yield f'NUM {k}'    #pause the function
+
+obj1=ids(5)
+print(next(obj1))
+print(next(obj1))
+print(next(obj1))
+print(next(obj1))         #whenever we want at that time , we call
+print(next(obj1))
 
 
-def id(b):
-    for k in range(b):
-        yield f'fin{b}'  # DOUBT
-
-
-a = id(11)
-print(a)
-
-# SKIPPED YIELD
 
 # OOPS (OBJECT ORIENTED PROGRAM)
+
 
 # Functinal programming
 ''' 1.writing the program or a fun, which has a small , single objective
@@ -31,18 +32,30 @@ print(a)
 
 python supports functional programmimg '''
 
+
 x = [10, 20, 30, 40]
-for k in x:
-    print(k)
+def fun(x):
+    return x+5
 
+print(fun(7))
 
-def fun(c):
-    return c + 5
+#lambda - map take multiple elements
 
+print(list(map(fun, x)))
 
-fun(5)
-x = [10, 20, 30, 40]
-list(map(fun, x))
+x=["Dr.Aravind","Raja","Ramu","Dr.Pavi"]
+def fun(x):
+    if "Dr" in x:
+        return True
+    else:
+        return False
+
+print(list(map(fun,x)))
+
+#filter - filter the value based on condition
+
+print(list(filter(fun,x)))   # True - it add element to the list  or not written
+
 
 z = [1, 2, 3, 4]
 v = []
@@ -52,6 +65,8 @@ for v in z:
 
 x = [10, 20, 30, 40]
 print(list(map(lambda z: z + 5, x)))
+
+
 
 gst = lambda price: price * 18 / 100
 print(gst(170))
@@ -68,16 +83,8 @@ class myclass:
         return (self.x + self.y)
 
 
-obj = myclass(10, 20) # variable present inside the class which is called as property
-obj.add()
 
 # __ __ called dunder methods or magic methods
-
-X=1
-y=2
-
-print(dir(X))
-print(X.__add__(y))
 
 
 
