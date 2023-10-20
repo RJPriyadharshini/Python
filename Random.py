@@ -37,3 +37,7 @@ avg = total / 3
 print(f'average marks : {avg/3}')
 
 
+
+
+
+

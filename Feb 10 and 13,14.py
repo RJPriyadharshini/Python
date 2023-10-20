@@ -66,8 +66,8 @@ print(big(50,big(20,big(30,40))))    #recursion
 
 c=[10,30,40,100,56]
 print(sum(c))
-print(list(map(lambda t:t+5,c)))
-x=(list(map(lambda t:t+5,c)))  #single time use lambda(temp fun , not stored in the memory)
+print(list(map(lambda t:t+2,c)))
+x=(list(map(lambda t:t+2,c)))  #single time use lambda(temp fun , not stored in the memory)
 print(sum(x))
 
 #lambda - support functional program
@@ -99,6 +99,31 @@ print(x.__add__(y))
 print(x.__mul__(y))
 
 
-class cal():
-    def __mul__(self):
+#feb-14
 
+class one:
+    def __init__(self,a,b):
+        self.a=a
+        self.b=b
+    def __repr__(self):
+       return self.a,self.b
+    def add(self):
+       return self.a+self.b
+    def mul(self):
+       return self.a*self.b
+
+class two(one):
+    def sub(self):
+        return self.a-self.b
+    def div(self):
+        return self.a/self.b
+
+# a is a parent class or super class and b is a child class
+
+obj=one(20,30)
+print(obj.mul())
+
+obj1=two(10,20)
+print(obj1.add())
+print(obj1.div())
+print(obj1.mul())
