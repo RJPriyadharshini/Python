@@ -254,6 +254,7 @@ password1 = "Hacker0001"
 password2 = "crazy*Mind123"
 
 
+
 print(f"Is '{password1}'  valid - {is_password(password1)}")
 print(f"Is '{password2}'  valid - {is_password(password2)}")
 
