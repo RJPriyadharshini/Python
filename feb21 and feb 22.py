@@ -81,6 +81,10 @@ print(shiva)
 print(shiva.maths)
 
 
+mylist=[1,2,3,4,1,2,5,6,7,8,8,8,8]  # occurence of one number present and their count
+
+print(col.Counter(mylist))
+
 class marks:
     def __init__(self,maths,phy,bio):
         self.maths=maths
@@ -108,7 +112,7 @@ empjob={"name":"raja","Salary":20000,"desig":"Tester"}
 empper={"name":"raja","location":"chennai","contact":93245665587}
 
 emp=col.ChainMap(empjob,empper)
-print(emp)
+print(emp)     # Chainmap - remove duplicates , only print the 1st occurence of duplicate key
 
 for j,k in emp.items():
     print(j,k)  #  remove duplicates
@@ -138,8 +142,9 @@ obj=names(pnames)
 print(obj)
 
 
+num=5
+fact=0
+if num==5:
+    fact=num*(num+1)
+    print(fact)
 
-
-mylist=[1,2,3,4,1,2,5,6,7,8,8,8,8]  # occurence of one number present and their count
-
-print(col.Counter(mylist))
