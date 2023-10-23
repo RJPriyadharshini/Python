@@ -1,5 +1,5 @@
 # EXCEPTIONS
-try:
+"""try:
  amt=(int(input("enter amount to withdraw: ")))
 except:
  print("error, enter numbers only")
@@ -32,17 +32,24 @@ finally:
  print("Finally Executed")
 
 
+
+num=input("enter num: ")
+if type(num)!=int:
+    raise Exception("Not allowed")      # raise exception
+else:
+    print(f'{num}')"""
+
 #exp date
 exp=[2021,2022,2023,2024,2025]
-for x in exp:
-    if x>=2023:
-        print(f'Dispatch {x} for place')
+for z in exp:
+    if z>=2023:
+        print(f'Dispatch {z} for place')
 
-#Assert will use if the condition is true it will execute or it throughs an error
-exp=[2021,2022,2023,2024,2025]
+#Assert will use - if the condition is true it will execute or it throughs an error
+exp=[2031,2032,2033,2034,2035]
 for x in exp:
-    assert x>=2023, 'Alert   ****** expired medicine ****ALERT'
-    print(f'Dispatch {x} for place')
+    assert x>2030, 'Alert ****** expired medicine **** ALERT'
+    print(f' {x} - market')
 
 
 

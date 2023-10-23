@@ -11,6 +11,12 @@ print(x.strip("#%"))
 print(x.encode())
 print(x.partition("H"))
 
+y="hi buddy its cool"
+a=y.split()
+print(a)
+z=" ".join(a)
+print(z)
+
 rows = 5
 for i in range(1, rows + 1):
     for j in range(1, i + 1):

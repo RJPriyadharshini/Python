@@ -25,7 +25,6 @@ for i in letter:
     elif i.isdigit():
         digit+=1
 print(f'count is {count} and digit is {digit}')
-"""
 
 def password(passcode):
     lower = any(char.islower() for char in passcode)
@@ -38,9 +37,9 @@ obj1 = password("Asx@34455")
 obj2 = password("sx@34455")
 print(f'{password} {obj1}')
 print(obj2)
+"""
 
-
-
-
-
-
+f = open("bill.txt", 'r')
+print(f)
+print(f.name)
+p
