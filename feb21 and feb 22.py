@@ -1,10 +1,12 @@
 # Standard modules
 #  datetime , math , os, sys , copy ,collections
 import datetime as dtm
+x=dtm.datetime.now()  # current date and time
+print(x)
 doi=dtm.date(1947,8,15)
 dor=dtm.date(1950,1,26)
 print(doi,dor)
-print(doi.year)
+print(doi.year)        # only year
 print(dor.month)
 print(dor.day)
 print(type(doi))
@@ -14,11 +16,25 @@ print(type(doi))
 print(doi>dor)
 print(doi!=dor)
 
+
+
 """ DATE FORMAT SPECIFIER
-%d - day , %m - month , %y - two digit year , %Y - Four digit year
-%a - short week in text , %A - long week in text
-%b- short month in text , % B - long month in text """
+%d   -  day ,                               1
+%m   -  month ,                              12
+%y   -  two digit year ,                     18
+%Y   -  Four digit year                      2018
+%a   -  short week in text ,                 wed
+%A   -  long week in text                    wednesday
+%b   -  short month in text ,                mar
+%B   -  long month in text                   march  """
 print("DATE FORMAT SPECIFIER")
+
+#STRING FORMAT
+
+#The datetime object has a method for formatting date objects into readable strings.
+
+x = dtm.datetime(2000, 3, 1)
+print(x.strftime("%B"))
 
 print(doi.strftime("%d-%m-%Y"))  #String format time
 print(doi.strftime("%dth-%B-%Y"))
@@ -46,14 +62,31 @@ print(cmath.pi)
 print(cmath.sin(60))
 print(cmath.log(1))
 
+x = pow(4, 3)         # 4*4*4
+print(x)
 
 
+# Math module
+
+import math
+y=math.sqrt(64)
+print(y)
+
+#ceil() method - rounds a number upwards to its nearest integer
+#floor() method -rounds a number downwards to its nearest integer
+
+z=1.4
+print(math.ceil(z))           # 2
+print(math.floor(z))          # 1
+print(math.pi)               # pi value 3.14
+print(math.factorial(5))       # fact value
 ### sys
 
 import sys   # manage system related tasks
 print(dir(sys))
 print(sys.winver)
 print(sys.stdin)
+
 
 
 #os
@@ -147,4 +180,29 @@ fact=0
 if num==5:
     fact=num*(num+1)
     print(fact)
+
+# REGULAR EXPRESSIONS
+
+"""A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.
+
+RegEx can be used to check if a string contains the specified search pattern. 
+
+findall  -  Returns a list containing all matches
+search  -   Returns a Match object if there is a match anywhere in the string
+split    -  Returns a list where the string has been split at each match
+sub      -   Replaces one or many matches with a string """
+
+import re
+x="Hi hello python is used for various purposes used for an development"
+print(re.findall("for",x))   # print all the occurence of for
+print(re.findall("mam",x))    # no name called mam it returns empty
+
+y= "python is an intrepretter language used for an development"
+print(re.search("t",y))        # in which position it present
+
+print(re.split("an",y))   # wherever an present it split the word
+
+print(re.split("an",y,1))     # only split the first occurence of the word
+
+print(re.sub("an","hi",y))       # replace the word
 
