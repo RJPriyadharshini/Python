@@ -42,4 +42,7 @@ print(obj2)
 f = open("bill.txt", 'r')
 print(f)
 print(f.name)
-p
+
+r=[20,40,60,80]
+r[1:4]= []
+print(r)

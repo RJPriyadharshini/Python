@@ -281,6 +281,16 @@ Is 'Hacker0001'  valid - False
 Is 'crazy*Mind123'  valid - True
 """
 
+x=1
+y=[]
+while True:
+    user=int(input("enter a num: "))
+    if user!=0:
+        y=y.append(user)
+        print(sum(y))
+        print(sum(y)/len(y))
+    else:
+        x=2
 
 
 

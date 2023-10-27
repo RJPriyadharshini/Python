@@ -1,4 +1,4 @@
-y = "hi Hello , MAY i Help"
+"""y = "hi Hello , MAY i Help"
 print(y.split(","))
 print(y.find("hi", 4))
 print(y.replace("hi", "HI"))
@@ -42,3 +42,37 @@ while i<3:  #0  1   2
     print(i)    #0  1   2    (0,2,1,3,2,4)
     i=i+1    #1   2   3
     print(i+1)  #2   3   4
+"""
+
+x = 1
+r = []
+
+while x == 1:
+    user = int(input("Enter a number: "))
+    if user != 0:
+        r.append(user)
+        print(f'sum is {sum(r)}')
+        y=sum(r)/len(r)
+        print(f'avr is {y}')
+    else:
+        x = 2
+
+print(r)
+print(f'sum is {sum(r)}')
+print(f'avr is {y}')
+
+a=[1,2,3,4,5]
+print(a[:4].pop())
+
+x = 1
+r = 0
+
+while x == 1:
+    user = int(input("Enter a number: "))
+    if user != 0:
+        r=r+user
+        print(f'sum is {sum(r)}')
+        y=sum(r)/len(r)
+        print(f'avr is {y}')
+    else:
+        x = 2
