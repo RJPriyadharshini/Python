@@ -238,6 +238,32 @@ def cubes(n):
         yield i**3
 print(list(cubes(10)))
 
+# REGULAR EXPRESSIONS
+""" ^ - starts with
+$ - ends with
+* - one or more occurence"""
+
+import re
+text="regular expression is of the module in the python"
+x=re.search("^regular.*python$",text)
+print(x)
+
+x=re.findall("the",text)
+print(x)
+print(re.search("python",text))
+
+def pallindrome(s):
+    s=s.replace(" ","").lower()
+    return s ==s[::-1]
+if __name__=="__main__":
+    input_str=input()
+    result=pallindrome(input_str)
+    if result:
+        print(pallindrome)
+    else:
+        print("not")
+
+
 
 
 
