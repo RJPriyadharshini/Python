@@ -193,6 +193,51 @@ print(array[0])
 array[2]="phone"
 print(array[2])
 
+#iterators  - in form of tuples
+
+# two methods - iter() and  next()
+
+a=(1,2,3,4)
+myiter=iter(a)
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+a=(1,2,3,4)
+class number():
+    def __iter__(self):
+        self.a=1
+        return self
+    def __next__(self):
+        if self.a<=5:
+            x=self.a
+            self.a+=1
+            return a
+        else:
+            raise StopIteration
+obj=number()
+myiter=iter(obj)
+for x in myiter:
+    print(x)
+
+# Generators - Sequence of results
+# with single exp we can make sequence
+# syntax - yield[expression list]
+
+def cubes(n):
+    result=[]
+    for i in range(n):
+        g=i**3
+        result.append(g)
+    return result
+print(cubes(10))
+
+# BY USING GENERATORS
+def cubes(n):
+    for i in range(n):
+        yield i**3
+print(list(cubes(10)))
+
 
 
 
