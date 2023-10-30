@@ -265,5 +265,28 @@ if __name__=="__main__":
 
 
 
+#HTTP - Hypertext markup language
+"""It is not case sensitive
+it support all  browsers
+
+HTML ELEMENT - start tag and end tag
+html element are head , html,h1,p-paragraph
+
+<tagname> start and </tagname> ends
+example
+<h1>My first heading</h1>  -font size  bigger
+<h6> - font size smaller
+<a href="www.google.com" </a>  --- hyperlink
+<img> - image
+<scr> - source
+<alt> -- alternative text  , height and weight are provided as attributes
+Absolute URL - External image on other website if has copyright we cannot able to download
+Relative URL - hosted in website , url does not include domain name
+<b> bodyyyyy </b>
+
+"""
+
+
+
 
 
