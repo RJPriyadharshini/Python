@@ -263,6 +263,10 @@ if __name__=="__main__":
     else:
         print("not")
 
+x=(64,65,"A")
+Z=max(x)
+print(Z)
+
 
 
 #HTTP - Hypertext markup language
@@ -283,6 +287,72 @@ example
 Absolute URL - External image on other website if has copyright we cannot able to download
 Relative URL - hosted in website , url does not include domain name
 <b> bodyyyyy </b>
+
+
+STYLE ATTRIBUTES
+
+
+Form elements - diff type of input elements 
+<input>
+<label>
+<select>
+<button>
+<fieldset>
+<legend>
+<datalist>
+<output>
+<option>
+<optgroup>
+
+input elements displayed in many ways , depending on the type attribute
+
+<input type="text">     - displays a single line text input
+<input type="radio">   - select one of many choices
+<input type="checkbox">   - select zero or more of many choices
+<input type="submit">     - submit the form
+<input type="button">    - clickable button
+
+<br> in new line
+
+***TEXT***
+
+<form>
+    <label form="fname">First name:</label><br>
+    <input form="text" id="fname" name="fname"><br>
+    <label form="lname">Last name:</label><br>
+    <input form="text" id="lname" name="lname"><br>
+    </form>
+          
+          
+*** RADIO***
+
+<input type="radio" id="html" name="fav_language" value="HTML">
+<label for="html">HTML</label><br>
+<input type="radio" id="css" name="fav_language" value="CSS">
+<label for="css">CSS</label><br>
+<input type="radio" id="javascript" name="fav_language" value="JavaScript">
+<label for="javascript">JavaScript</label><br>
+
+<input type="radio" id="python" name="fav_language" value="python">
+<label for="python">python</label>
+
+
+*** CHECKLIST ***
+
+<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1"> I have a bike</label><br>
+<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+<label for="vehicle2"> I have a car</label><br>
+<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> I have a boat</label><br><br>
+
+*** SUBMIT ***
+<input type="submit" value="Submit"> 
+
+
+radio - round   - Choose only one
+checklist - square - choose all the options
+<form action="/action_page.php" id="form1">  Withput using that form , not perform any action
 
 """
 
