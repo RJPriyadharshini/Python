@@ -271,64 +271,68 @@ print(Z)
 
 #HTTP - Hypertext markup language
 
-
 """It is not case sensitive
 it support all  browsers
 
-HTML ELEMENT - start tag and end tag
+HTML ELEMENT    -     start tag and end tag
 html element are head , html,h1,p-paragraph
 
-<!DOCTYPE html>  -  declaration defines that this document is an HTML5 document
+<!DOCTYPE html>  -   declaration defines that this document is an HTML5 document
 <tagname>            start and </tagname> ends
 example
 <h1>                 My first heading</h1>  -font size  bigger
-<h6> -            font size smaller
-<a href="www.google.com" </a>          --- hyperlink
-<img> -               image
+<h6> -               font size smaller
+<a                   href="www.google.com" </a>          --- hyperlink
+<img> -              image
 <scr> -              source
 <alt> --            alternative text  , height and weight are provided as attributes
+
 Absolute URL - External image on other website if has copyright we cannot able to download
 Relative URL - hosted in website , url does not include domain name
+
 <b> body</b>
 
-<hr> - horizontal rule , 	Defines a thematic change in the content
-<br> in new line  , empty elements - it doesnt have a end tag(like <br>)
-<pre>   - Write inside the paragragh 
-style="text-align:center;"    - center alignment 
-style="background-color:yellow"    - set bg color
+<hr>     - horizontal rule , 	Defines a thematic change in the content
+<br>       in new line  , empty elements - it doesnt have a end tag(like <br>)
+<pre>    - Write inside the paragragh 
+style="text-align:center;"          - center alignment 
+style="background-color:yellow;"    - set bg color
 
 
 HTML Formatting Elements
+
 Formatting elements were designed to display special types of text:
 
-<b> - Bold text
-<strong> - Important text
-<i> - Italic text
-<em> - Emphasized text
-<mark> - Marked text
-<small> - Smaller text
-<del> - Deleted text
-<ins> - Inserted text
-<sub> - Subscript text
-<sup> - Superscript text
+<b>           - Bold text
+<strong>      - Important text
+<i>           - Italic text
+<em>          - Emphasized text
+<mark>        - Marked text
+<small>       - Smaller text
+<del>        - Deleted text
+<ins>        - Inserted text
+<sub>        - Subscript text
+<sup>        - Superscript text
+
 
 HTML Quotation and Citation Elements
 
-
-<abbr>	       -   abbreviation or acronym
-<address>	  -  information for the author/owner of a document
-<bdo>	       -  text direction
+<abbr>	        -   abbreviation or acronym
+<address>	     -  information for the author/owner of a document
+<bdo>	         -  text direction
 <blockquote>   -   quoted from another source
 <cite>	      -    title of a work
 <q>	          -   short inline quotation
+
 <!-- This is a comment -->   for comment 
 style="border:2px solid Tomato;"   - borders 
 
-<span> - give more importance 
-Classes   -   used by CSS and JavaScript to access specific elements , case sensitive 
+<span>      - give more importance 
+Classes    -   used by CSS and JavaScript to access specific elements , case sensitive 
 getElementsByClassName() method   - JavaScript can access elements with a specific class name
 
 ** DIFF B/W CLASS AND ID
+
 class -  name can be used by multiple HTML elements
 id   -  name must only be used by one HTML element within the page:
 
@@ -340,12 +344,12 @@ An HTML iframe is used to display a web page within a web page.
 ***  HTML head Elements ***
 
 <head>	   -  Defines information about the document
-<title>     -  Defines the title of a document
+<title>     - Defines the title of a document
 <base>	-     Defines a default address or a default target for all links on a page,must have either an href or a target attribute present, or both
 <link>	-     Defines the relationship between a document and an external resource
-<meta>	-      metadata about an HTML document,The metadata will not be displayed on the page, but is used by browsers 
-<script>   -   client-side java script
-<style>    - 	style information for a document  
+<meta>	-     metadata about an HTML document,The metadata will not be displayed on the page, but is used by browsers 
+<script>   -  client-side java script
+<style>    - style information for a document  
 
 *** HTML Computer Code Elements ***
 
@@ -357,41 +361,52 @@ An HTML iframe is used to display a web page within a web page.
 Action attribute   -   action to be performed when the form is submitted.
 Action attribute is omitted, the action is set to the current page.
 
-Target attribute   -    specifies where to display the response that is received after submitting the form
+Target attribute     -    specifies where to display the response that is received after submitting the form
 
-_blank	   -   The response is displayed in a new window or tab
-_self	-   displayed in the current window
-_parent	    -    displayed in the parent frame
-_top	   - displayed in the full body of the window
-framename	   -   displayed in a named iframe
+_blank	             -   The response is displayed in a new window or tab
+_self	            -    displayed in the current window
+_parent	            -    displayed in the parent frame
+_top	            -    displayed in the full body of the window
+framename	         -   displayed in a named iframe
+
+EG:
+
+<form action="/action_page.php" target="_blank">
+
 
 Method attributes -
-The form-data can be sent as URL variables (with method="get") or as HTTP post transaction (with method="post").
+----used when submitting the form data.
+----The form-data can be sent as URL variables (with method="get") or as HTTP post transaction (with method="post").
 
 GET:
 
- ----Appends the form data to the URL, in name/value pairs
+----Appends the form data to the URL, in name/value pairs
 ----Never use GET to send sensitive data! (the submitted form data is visible in the URL!)
-------The length of a URL is limited (2048 characters)
------Useful for form submissions 
--------non-secure data, like query strings in Google
+----The length of a URL is limited (2048 characters)
+----Useful for form submissions 
+----non-secure data, like query strings in Google
 
 
 
 POST:
 
-------Appends the form data inside the body of the HTTP request (the submitted form data is not shown in the URL)
---------POST has no size limitations, and can be used to send large amounts of data.
-----------Form submissions with POST cannot be bookmarked
+----Appends the form data inside the body of the HTTP request (the submitted form data is not shown in the URL)
+----POST has no size limitations, and can be used to send large amounts of data.
+----Form submissions with POST cannot be bookmarked
 
 
 Autocomplete Attribute
-------form should have autocomplete on or off.
+
+----form should have autocomplete on or off.
+EG:
+
+<form action="/action_page.php" autocomplete="on">
 
 Novalidate Attribute
 
 ----boolean attribute.
------form-data (input) should not be validated when submitted.
+----form-data (input) should not be validated when submitted.
+
 
 STYLE ATTRIBUTES
 
@@ -420,7 +435,10 @@ default, the first item in the drop-down list is selected.
 Use the size attribute to specify the number of visible values
 Use the multiple attribute to allow the user to select more than one value:
 
+<fieldset> -  element is used to group related data in a form.
 
+<legend>   -  element defines a caption for the <fieldset> element.
+<datalist>   -  element specifies a list of pre-defined options for an <input> element.
 input elements displayed in many ways , depending on the type attribute
 
 <input type="text">     - displays a single line text input
