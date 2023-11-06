@@ -490,6 +490,9 @@ radio - round   - Choose only one
 checklist - square - choose all the options
 <form action="/action_page.php" id="form1">  Withput using that form , not perform any action
 
+
+
+
 """
 
 

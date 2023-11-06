@@ -43,6 +43,8 @@ while x<2:
     x=x+1
 
 
-
-
+str1="ABCDEFG"
+str2="ate"
+for letters in str1:
+    print(letters+ str2,end=" ")
 

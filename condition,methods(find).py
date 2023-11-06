@@ -84,6 +84,10 @@ print(y.split(","))
 print(y.find("hi", 4))
 print(y.replace("hi", "HI"))
 print(y.endswith("lp"))
+print(y.ljust(10,'*')
+print(y.rjust(10,'*')
+print(y.zfill(10))
+print(list(enumerate(y)))
 
 x = " ## How are you %%"
 print(x.lstrip("#"))
@@ -157,6 +161,9 @@ while x == 1:
         print(f'avr is {y}')
     else:
         x = 2
+
+
+
 
 
 
