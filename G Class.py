@@ -490,11 +490,126 @@ radio - round   - Choose only one
 checklist - square - choose all the options
 <form action="/action_page.php" id="form1">  Withput using that form , not perform any action
 
+DAY-2 HTML
+CSS - Cascading Style Sheets
+-- used to style and layout the web page
+-- how HTML elements displayed on screen
+-- It should contain property and value , separated by the colon
+
+
+for eg
+
+h1{color:blue;font-size:12px;}  --> declaration
+
+h1-> selector
+color,font-size - property
+blue,12px - value
+
+CSS into five category
+
+Simple selectors - based on name , id , class
+Combinator - based on specific relationship between them
+pseudo-class - based on certain state
+pseudo-elements - style a part of the element
+Attributes - based on attributes or attributes values
+
+CSS SELECTORS
+ELEMENT SELECTOR
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p {
+  text-align: center;
+  color: red;
+} 
+</style>
+</head>
+<body>
+
+<p>Every paragraph will be affected by the style.</p>
+<p id="para1">Me too!</p>
+<p>And me!</p>
+
+</body>
+</html>
+
+"Given in the style tag then it is applicable to all comments"
+
+CSS ID SELECTOR 
+
+-- uses the id attribute of an HTML element to select a specific element.
+
+--The id of an element is unique within a page, so the id selector is used to select one unique element!
+
+--To select an element with a specific id, write a hash (#) character, followed by the id of the element.
+
+EG
+
+The CSS rule below will be applied to the HTML element with id="para1": 
+
+#para1 {
+  text-align: center;
+  color: red;
+}
+
+
+The CSS class Selector
+
+
+--The class selector selects HTML elements with a specific class attribute.
+
+--To select elements with a specific class, write a period (.) character, followed by the class name.
+
+Example
+
+In this example all HTML elements with class="center" will be red and center-aligned: 
+
+.center {
+  text-align: center;
+  color: red;
+}
+
+
+The CSS Universal Selector
+The universal selector (*) selects all HTML elements on the page.
+
+
+DAY - 3 (DOM)
+
+-- DOM is a programming interface
+-- change doc structure , style and content
+-- document nodes,obj,that way interacting with page
+-- with the HTML DOM . JS can access and change all elements of HTML Docu
+
+Finding HTML ELEMENTS
+
+document.getElementById 
+document.getElementByTagname
+document.getElementByClassName
+
+CHANGING HTML ELEMENTS
+
+Property
+element.innerHTML  =New html element
+element.attribute = new value
+element.style.property   = new style
+Method.Description
+element.setAttribute(attribute,value)
+
+
+ADDING AND DELETING ELEMENTS
+
+document.createElement
+document.removeChild
+document.appendchild
+document.replaceChild
+document.write
 
 
 
 """
-
 
 
 
