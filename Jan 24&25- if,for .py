@@ -1,4 +1,4 @@
-list1 = [10, 20, [300, 400, [5000, 6000], 500], 30, 40]
+"""list1 = [10, 20, [300, 400, [5000, 6000], 500], 30, 40]
 list1[2][2].append(7000)
 print(list1)
 
@@ -48,7 +48,19 @@ for z in totalseats:
         print("seat added")
         break
     else:
-        print(bookedseats)
+        print(bookedseats)"""
+
+
+#write a function using lambda function to check every element of a list is an integer r string
+
+#h=list(filter(lambda a:a>2,g))
+
+def fun(listt):
+    y=0
+    y=list(filter(lambda(y:y.append(listt) if type(listt) is string else y.append(listt))))
+    print(y)
+
+listt[1,2,3,"dss","fff"]
 
 
 

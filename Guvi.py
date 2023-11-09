@@ -1,4 +1,4 @@
-import datetime
+"""import datetime
 
 def fun():
     f = open("guvi.txt", "w")
@@ -13,7 +13,7 @@ def fun():
 
 fun()
 cd
-
+"""
 
 
 """Shape	Area	Perimeter
@@ -21,7 +21,7 @@ Circle	A = π × r2	Circumference = 2πr"""
 
 # OOPS CONCEPT
 """Create a python program called circle with constructor which will take a list an argument
-From the given list create two class methods area and perimeter which will belong to calculate area and perimeter"""
+From the given list create two class methods area and perimeter which will belong to calculate area and perimeter
 
 class Circle:
     pi = 3.141
@@ -45,8 +45,7 @@ for radius in list:
     print(f"Area: {circle_obj.area()}")
     print(f"Perimeter: {circle_obj.perimeter()}")
     print("------")
-
-"""OUTPUT
+OUTPUT
 
 Radius: 10
 Area: 314.1
@@ -79,8 +78,7 @@ Perimeter: 546.534
 Radius: 351
 Area: 386974.341
 Perimeter: 2204.982
------- """
-
+------ 
 
 # TASK - 9
 
@@ -89,9 +87,9 @@ data =[10, 501, 22, 37, 100, 999, 87, 351]
 result = filter(lambda x:x>4,data)
 print(list)
 
-"""OUTPUT
+OUTPUT
 [10, 501, 22, 37, 100, 999, 87, 351]
-"""
+
 
 # 2. Write a python code using lambda function to check every element of an list is interger or string
 
@@ -101,7 +99,7 @@ for i in data:
     result = check_type(i)            # Check type of each element in the list
     print(f"{i} is {result}")
 
-"""OUTPUT
+OUTPUT
 10 is Integer
 501 is Integer
 22 is Integer
@@ -110,7 +108,7 @@ for i in data:
 999 is Integer
 87 is Integer
 351 is Integer
-"""
+
 
 #3 . using a python lambda function to create a fibonacci serious from 1 to 50 elements?
 
@@ -118,9 +116,9 @@ from functools import reduce
 fib = lambda n: reduce(lambda x, _: x+[x[-1]+x[-2]],
 								range(n-2), [0, 1])
 print(fib(50))
-
+"""
 #OR
-
+"""
 def fibonacci(count):
    listA = [0, 1]
    any(map(lambda _:listA.append(sum(listA[-2:])),
@@ -149,11 +147,11 @@ print(f"Is '{email1}' a valid email? {is_valid_email(email1)}")
 print(f"Is '{email2}' a valid email? {is_valid_email(email2)}")
 print(f"Is '{email3}' a valid email? {is_valid_email(email3)}")
 
-"""OUTPUT
+OUTPUT
 Is 'user@example.com' a valid email? True
 Is 'invalid_email@.com' a valid email? False
 Is 'another.user@domain.co' a valid email? True
-"""
+
 
 #OR
 import re
@@ -171,10 +169,9 @@ print(f"Is '{email1}'  valid - {is_valid_email(email1)}")
 print(f"Is '{email2}' valid - {is_valid_email(email2)}")
 
 
-"""OUTPUT
+OUTPUT
 Is 'user@example.com'  valid - True
 Is 'invalid_email@.com' valid - False
-"""
 
 # MOBILE NUMBER OF BANGLADESH
 def mobile_number(number):
@@ -192,11 +189,10 @@ print(f"Is '{mobile_number1}' valid - {mobile_number(mobile_number1)}")
 print(f"Is '{mobile_number2}' valid -{mobile_number(mobile_number2)}")
 print(f"Is '{mobile_number3}' valid - {mobile_number(mobile_number3)}")
 
-"""OUTPUT
+OUTPUT
 Is '+8801712345678' valid - True
 Is '01954321' valid -False
 Is '+8801112345678' valid - True
-"""
 
 # TELEPHONE NUMBER OF USA
 def us_phone_number(phone_number):
@@ -214,12 +210,12 @@ print(f"Is '{phone_number1}' valid - {us_phone_number(phone_number1)}")
 print(f"Is '{phone_number2}' valid - {us_phone_number(phone_number2)}")
 print(f"Is '{phone_number3}' valid - {us_phone_number(phone_number3)}")
 
-"""OUTPUT
+OUTPUT
 Is '(123) 456-7890' valid - False
 Is '555-1234' valid - False
 Is '2234567890' valid - True
 
-"""
+
 # Write a python fun which has 16 Characters alpha numeric password composed of alphabets of upper case , lower case , special characters , numbers.
 
 def password(password):
@@ -235,10 +231,10 @@ password2 = "passcode-123"
 
 print(f"Is '{password1}' valid -  {password(password1)}")
 print(f"Is '{password2}' valid - {password(password2)}")
-"""OUTPUT
+OUTPUT
 Is 'Soul@1234' valid -  True
 Is 'passcode-123' valid - False
-"""
+
 
 "ORR"
 
@@ -275,10 +271,54 @@ password2 = "crazy*Mind123"
 print(f"Is '{password1}'  valid - {is_password(password1)}")
 print(f"Is '{password2}'  valid - {is_password(password2)}")
 
-"""OUTPUT
+OUTPUT
 Is 'Hacker0001'  valid - False
 Is 'crazy*Mind123'  valid - True
 """
+
+import random
+class Audio:
+    def __init__(self, name, url):
+        self.name = name
+        self.url = url
+        self.rating = 0
+
+    def set_rating(self, rating):
+        self.rating = rating
+
+
+class Playlist:
+    def __init__(self, name, genre):
+        self.name = name
+        self.genre = genre
+        self.audios = []
+
+    def add_audio(self, audio):
+        self.audios.append(audio)
+
+    def calculate_average_rating(self):
+        total_ratings = sum(audio.rating for audio in self.audios)
+        return total_ratings / len(self.audios) if self.audios else 0
+
+
+# Example usage:
+playlist1 = Playlist("Playlist 1", "Pop")
+playlist2 = Playlist("Playlist 2", "Rock")
+
+audios = [Audio(f"Song {i}", f"https://example.com/song{i}.mp3") for i in range(1, 4)]
+for audio in audios:
+    audio.set_rating(random.randint(1, 5))
+
+playlist1.add_audio(audios[0])
+playlist1.add_audio(audios[1])
+playlist2.add_audio(audios[2])
+
+average_rating1 = playlist1.calculate_average_rating()
+average_rating2 = playlist2.calculate_average_rating()
+
+print(f"Average rating for Playlist 1: {average_rating1}")
+print(f"Average rating for Playlist 2: {average_rating2}")
+
 
 
 

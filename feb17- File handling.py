@@ -55,8 +55,30 @@ toss=["Head","Tail"]
 print(random.choice(toss))
 
 
+"""
+By using this comment in terminal create a file with text in terminal
+
+echo "pip install Flask" > File.txt    - create the file 
+ pip freeze >File.txt      - In that file package is selected
+  pip install -r File.txt   - install that flask module
+  
+  p
 
 
+
+del filename.txt    - del file
+
+
+
+"""
+
+class Playlist():
+    def Genere(self,Jonar):
+        print(jonar)
+
+class songs(Playlist):
+    def music(self,songs):
+        
 
 
 
