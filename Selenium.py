@@ -41,7 +41,7 @@ LOCATORS
 
 Identify elements in the webpage we use locators 
 
-Lacators - id , Name , Linktext PartialLinktext , ClassName , TagName
+Lacators - id , Name , Linktext, PartialLinktext , ClassName , TagName
 Customized Locators - CSS SELECTOR AND  XPATH
 CSS SELECTOR - Tag and ID , Tag and class , Tag and attribute , Tag, class and attribute
 XPATH - Absolute XPath(Full) , Relative XPath(Partial)
@@ -73,7 +73,7 @@ driver.find_element(By.LINK_TEXT,"Register").click()
 time.sleep(50)
 driver.close()"""
 
-# find elements - find all the elements with same tag  - multiple web elements
+#find elements - find all the elements with same tag  - multiple web elements
 
 """sliders=driver.find_elements(By.CLASS_NAME,'homeslider-container')
 print(len(slider))   -> print the total len of the slider 
@@ -81,7 +81,7 @@ print(len(slider))   -> print the total len of the slider
 links=driver.find_elements(By.TAG_NAME,'a')
 print(len(links))   total num of links present """
 
-# CSS SELECTORS (tag is optional)
+#CSS SELECTORS (tag is optional)
 
 """import time
 from selenium import webdriver
@@ -104,7 +104,7 @@ driver.implicitly_wait(20)
 #driver.find_element(By.CSS_SELECTOR,"input.inputtext").send_keys("Tag and class")
 #(actual class value is "inputtext _55r1 _6luy" sometimes we have to remove the text after the space)
 
-#Tag and attribute [    tagname[attribute=value]    ]
+#Tag and attribute [tagname[attribute=value]    ]
 
 #driver.find_element(By.CSS_SELECTOR,"input[data-testid=royal_email]").send_keys("tag attributes")
 
@@ -148,7 +148,7 @@ Absolute xpath
 
 relative
  //tagname[@Attribute='Value']
-
+ 
 selectors hub - extension used in chrome,browser (to identify tags)
 
 interview question - Most of the time we use relative XPath because  
@@ -291,6 +291,7 @@ driver.quit()
 time.sleep(100)
 """
 
+
 # DAY - 5
 """
 1.application commands
@@ -344,6 +345,7 @@ print(driver.page_source)
 
 
 driver.quit()   """
+
 
 """driver.get("https://demo.nopcommerce.com/register")
 search=driver.find_element(By.XPATH,"//input[@id='small-searchterms']")
@@ -439,6 +441,7 @@ print("result of text",log.text)
 print("result of get_attribute",log.get_attribute('value'))
 print("result of get_attribute",log.get_attribute('type')) """
 
+
 ####### DAY -6 ########
 
 # Wait commands - used for syrnchronizing prblm
@@ -446,19 +449,21 @@ print("result of get_attribute",log.get_attribute('type')) """
 """
 
 
-time.sleep
+time.sleep (maximum time wait for that element)
 advantage 
 --- simple to use
 Disadvantage
 --- performance of the script is very poor
---- if the element is not available within the time mentioned . still there is a chance of getting exception 
+--- if the element is not available within the time mentioned still there is a chance of getting exception 
 
-1.implicit wait
+1.implicit wait(wait for element if element is available procedd to next)
 
 ADVANTAGE
+
 --- Single statement
 --- performance will not be reduced (if the element is available within the time it proceed to execute further
-
+DISADVANTAGE
+-- If the element is not available within the time mentioned , still there is a chance of getting exception
 
 # Amount of time driver should wait to find the element(if you call next condition it perform
 # implicitly_wait - - it is applicable to all the below statements
@@ -466,20 +471,139 @@ ADVANTAGE
 
 2.explicit wait
 
-it works based on condition
+explicit waits - it works based on condition
+mywait=WebDriverWait(driver,10,ignored_exceptions=[NoSuchElementException,ElementNotVisibleException,ElementsNotSelectableException,Exception])
+poll_frequency=2  - total 10 sec in tha every 2 sec it goes and try to find that element it reduce time
+mywait=WebDriverWait(driver,10,poll_frequency,ignored_exceptions=[NoSuchElementException,ElementNotVisibleException,ElementsNotSelectableException,Exception])
+
+Adv
+-- More effectively work
+
+Dis 
+
+--  Multiple places enter feels some difficulty
 
 
-"""
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
+driver = webdriver.Chrome()
+mywait=WebDriverWait(driver,10)  # explicit wait declaration
+
+
+
+#driver.implicitly_wait(20)
+driver.get("https://www.google.com/")
+searchbox=driver.find_element(By.NAME,'q')
+searchbox.send_keys("Selenium")
+#searchbox.submit()    # Press enter key
+
+#driver.find_element(By.XPATH,"//span[normalize-space()='selenium']").click()
+#driver.find_element(By.XPATH,"//h3[text()='Selenium']").click()
+mywait.until(EC.presence_of_element_located((By.XPATH,"//h3[text()='Selenium']")))
+mywait.click()# condition is stastified it will execute
+#If the condition is not true until it wait for that element
+time.sleep(10)
+driver.quit() """
+
+
+####DAY - 7 #######
+
+"""import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+#Select checkboxes
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://itera-qa.azurewebsites.net/home/automation")
+#driver.find_element(By.XPATH,"//input[@id='monday']").click()
+
+
+checkboxes=driver.find_elements(By.XPATH,"//input[@type='checkbox' and contains(@Id,'day')]")
+print(len(checkboxes))
+
+
+#for i in range(len(checkboxes)):
+    #checkboxes[i].click()
+
+#for checkbox in checkboxes:
+    #checkbox.click()
+
+# Select multiple
+for checkbox in checkboxes:
+    weekname=checkbox.get_attribute('id')
+    if weekname=="monday" or weekname=="sunday":
+        checkbox.click()
+
+#Select two checkboxes from last
+
+for i in range(len(checkboxes)-2,len(checkboxes)):  #Total 7 [range(5,7)]
+    checkboxes[i].click()   # sat and sun
+
+time.sleep(10)
+driver.quit()
+
+
+# select first 2 checkboxes
+
+for i in range(2):
+    checkboxes[i].click()
+#or
+for i in range(len(checkboxes)):
+    if i<2:
+        checkboxes[i].click()
+
+#for select and unselect using the same click fun
+
+
+#if selected remove that if unselected add that
+
+for checkbox in checkboxes:
+    if checkbox.is_selected():
+        checkbox.click()
+    else:
+        checkbox.click()
+
+
+
+######   LINKS   ###
+
+1.Internal link   - Link available on same page
+2.External link   - link navigate to other webpage
+3.Broken link    - Target link is not available"""
+
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+
 driver = webdriver.Chrome()
 driver.implicitly_wait(20)
-driver.get("https://www.google.com/")
-searchbox = driver.find_element(By.NAME, 'q')
-searchbox.send_keys("Selenium")
-searchbox.submit()
+driver.get("https://demo.nopcommerce.com/")
+driver.implicitly_wait(20)
+driver.find_element(By.LINK_TEXT,"Digital downloads").click()
+#driver.find_element(By.PARTIAL_LINK_TEXT,"Digital").click()
 
-driver.find_element(By.XPATH, "//h3[text()='Selenium']").click()
+
+links=driver.find_elements(By.TAG_NAME,'a')
+print(len(links))
+
+for link in links:
+    print(link.text)  # link is web element we cannot directly print so that we use text
+time.sleep(100)
+driver.quit()
+
+
+
+
+
+
