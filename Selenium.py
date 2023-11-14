@@ -456,7 +456,7 @@ Disadvantage
 --- performance of the script is very poor
 --- if the element is not available within the time mentioned still there is a chance of getting exception 
 
-1.implicit wait(wait for element if element is available procedd to next)
+1.implicit wait(wait for element if element is available proceed to next)
 
 ADVANTAGE
 
@@ -576,9 +576,9 @@ for checkbox in checkboxes:
 
 ######   LINKS   ###
 
-1.Internal link   - Link available on same page
+1.Internal link   - Link available on same page(naviagte to same page)
 2.External link   - link navigate to other webpage
-3.Broken link    - Target link is not available"""
+3.Broken link    - Target link is not available
 
 import time
 from selenium import webdriver
@@ -597,6 +597,8 @@ driver.find_element(By.LINK_TEXT,"Digital downloads").click()
 links=driver.find_elements(By.TAG_NAME,'a')
 print(len(links))
 
+
+
 for link in links:
     print(link.text)  # link is web element we cannot directly print so that we use text
 time.sleep(100)
@@ -604,6 +606,150 @@ driver.quit()
 
 
 
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+import requests as request
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("http://www.deadlinkcity.com/")
+
+all_links=driver. find_elements(By.TAG_NAME,'a')
+count=0
+
+for link in all_links:
+    url=link.get_attribute('href')
+    try:
+        res = request.get(url)  # send a request to the server
+    except:
+        None
+    if res.status_code >= 400 and res.status_code < 406:
+        print(url," is broken link")
+        count+=1
+    else:
+        print(url, "is not broken")
+
+print("total is:",count)
+
+time.sleep(100)
+driver.quit()
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("https://www.opencart.com/index.php?route=account/register")
+
+# Find the dropdown element
+drp_coun_els = driver.find_element(By.XPATH, "//select[@id='input-country']").click()
+drp_coun = Select(drp_coun_els)
+
+#select option from dropdown
+
+#drp_coun.select_by_visible_text("Angola")
+#drp_coun.select_by_value("6")
+drp_coun.select_by_index(6) #count by manual
 
 
+
+all_opt=drp_coun.options
+print("all options is:",len(all_opt))
+print(all_opt)
+
+# Iterate through options and print their text
+for option in all_opt:
+    print(option.text)
+
+#select option from drop down without using buildin functions
+for option in all_opt:
+    if option.text=="Angola":
+        option.click()
+        break
+
+time.sleep(200)
+driver.quit()
+
+
+####### DAY - 8 #####
+
+#   Alerts/Popups
+
+alert = driver.switch_to.alert
+alert.text
+alert.accept
+alert.dismiss
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("https://the-internet.herokuapp.com/javascript_alerts")
+#open alert window
+driver.find_element(By.XPATH,"//button[normalize-space()='Click for JS Prompt']").click()
+time.sleep(5)
+alt_win=driver.switch_to.alert  # switch to alert window
+alt_win.text
+alt_win.send_keys("User input 'Welcome'")
+#alt_win.accept() #close alt window by using ok button.
+alt_win.dismiss() #close alt window using cancel button
+
+time.sleep(50)
+driver.quit()
+
+#########
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+
+driver = webdriver.Chrome()
+#driver.implicitly_wait(20)
+driver.get("https://mypage.rediff.com/login/dologin")
+driver.find_element(By.XPATH,"//input[@value='Login']").click()
+time.sleep(5)
+#alt_win=driver.switch_to.alert
+#alt_win.accept()
+#or
+
+driver.switch_to.alert.accept()
+time.sleep(50)
+driver.quit()
+
+
+
+# Authentication popup
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+
+driver = webdriver.Chrome()
+#driver.implicitly_wait(20)
+driver.get("https://theinternet.herokuapp.com/basic_auth")  #normal url
+#driver.get("https://admin:admin@theinternet.herokuapp.com/basic_auth")
+time.sleep(50)
+driver.quit() """
+
+# Handle frames or Iframes
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("https://www.selenium.dev/selenium/docs/api/java/index.html?overview-summary.html")
+driver.find_element(By.LINK_TEXT,"//a[normalize-space()='org.openqa.selenium']").click()
 
