@@ -7,7 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
 driver.implicitly_wait(10)
-# Amount of time driver should wait to find the element(if you call next condition it perform
+
+# Amount of time driver should wait to find the element(if you call next condition it perform)
 # implicitly_wait - it is applicable to all the below statements
 
 
@@ -39,12 +40,32 @@ driver.close()  """
 """DAY -2
 LOCATORS 
 
-Identify elements in the webpage we use locators 
+Identify elements in the webpage we use "locators"
 
-Lacators - id , Name , Linktext, PartialLinktext , ClassName , TagName
+Lacators 
+
+  1.id 
+  2.Name
+  3.Link text
+  4.Partial Link text
+  5.ClassName
+  6.TagName
+  
 Customized Locators - CSS SELECTOR AND  XPATH
-CSS SELECTOR - Tag and ID , Tag and class , Tag and attribute , Tag, class and attribute
-XPATH - Absolute XPath(Full) , Relative XPath(Partial)
+
+
+CSS SELECTOR 
+
+1.Tag and ID                 - tagname#valueofID
+2.Tag and class              - tagname.valueofclass
+3.Tag and attribute          - tagname[attribute=value]
+4.Tag, class and attribute   - tagname[valueofclass[attribute=value]]
+
+
+XPATH 
+
+1.Absolute XPath(Full)
+2.Relative XPath(Partial)
 
 close()  - close only one browser at a time
 quit() - close all browsers
@@ -53,12 +74,12 @@ HTML STRUCTURE
 
 <input name = "txtUsername" id="txtUsername" type="text"(input is element , name is attribute , txtusername is value
  """
+
 """
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-
 
 driver = webdriver.Chrome()
 driver.implicitly_wait(20)
@@ -118,26 +139,34 @@ driver.close()   """
 
 #  DAY -3
 
-"""    XPATH (works based on DOM)
+"""XPATH (works based on DOM)
+
 -> Finding an element in webpage
 -> finding element using HTML DOM Structure
 -> navigate through elements and attributes
 -> address of the element
 
 DOM-Document object model
+
 ->API interface it represents the structure of  HTML and XML Documents as tree structure
 ->used to locate the web elemets,and creats a DOM of the page
 
 
-Absolute path (copy full xpath)  - 
-->  use only tags / nodes
+Absolute path (copy full xpath)  
+
+-> use only tags / nodes
 -> Start from root node
+
+eg:
 
 /html/body/nav/div/div[2]/div[2]/ul/li[2]/a/button
 
-Relative path  -
-->directly to the element
+Relative path  
+
+-> directly to the element
 -> use attributes
+
+eg:
 
 //*[@id="navbarSupportedContent"]/div[2]/ul/li[2]/a/button
 
@@ -149,20 +178,24 @@ Absolute xpath
 relative
  //tagname[@Attribute='Value']
  
+ 
 selectors hub - extension used in chrome,browser (to identify tags)
 
-interview question - Most of the time we use relative XPath because  
-- If developer introduced the new element then absolute xpath will be broken
--- if developer changed the location then absolute xpath will be broken
-absolute xpath is unstable
+Interview question:
+
+Most of the time we use relative XPath because ?
+
+-> If developer introduced the new element then absolute xpath will be broken
+-> if developer changed the location then absolute xpath will be broken
+-> absolute xpath is unstable
 
 XPATH OPTIONS
 
-and 
-or
-contains
-starts-with
-text
+1. and 
+2. or
+3. contains
+4. starts-with
+5. text
 
 if the button is "START/STOP" how to identify at that time we use contains or startswith
 //*[contains(@id,st)] or //*[starts-with(@id,'st')]   or //*[@id='start' or id='stop'] - in this if you call it start and stop both will execute
@@ -187,42 +220,50 @@ time.sleep(100)  """
 
 # DAY - 4
 
-"""XPATH AXES  - travels from top to bottom and bottom to top
+"""XPATH AXES  - travels from top to bottom and bottom to top in the page
 
-self          - 
-->whichever node we start from
+self     
+     - 
+-> whichever node we start from
 -> SYNTAX - //*[attribute=’value’]/self::tagname
 
 parent
+
 -> traverse parent element of the current html tag
 -> //*[attribute=’value’]/parent::parent::tagname
 
 child
+
 -> traverse all child elements of the current html tag.
 -> SYNTAX - //*[attribute=’value’]/child::tagname
 
 ancestor
+
 -> Traverse all the ancestor elements(grandparent,parent etc ) of the current html tag
 -> SYNTAX - //*[attribute=’value’]/ancestor::tagname
 
 descendant
+
 -> Traverse all the ancestor elements(child, grandchild etc ) of the current html tag
 -> SYNTAX - //*[attribute=’value’]/descendant::tagname
 
 following
 
-->traverse all element that comes after the  current html tag.
+-> traverse all element that comes after the  current html tag.
 -> SYNTAX - //*[attribute=’value’]/following::tagname
 
 following-sibling
+
 -> Traverse from current html tag to next sibling html tag
 -> //current html tag[@attribute=’value’]/following-sibling::sibling tag [@attribute=’value’]
 
 preceding
+
 -> traverse all nodes that comes before the current html tag.
 -> SYNTAX - //*[attribute=’value’]/preceding::tagname
 
 preceding-sibling
+
 -> Traverse from current html tag to previous sibling html tag
 -> //current html tag[@attribute=’value’]/preceding-sibling::previous tag [@attribute=’value’]
 
@@ -246,17 +287,18 @@ driver.implicitly_wait(20)
 
 #parent
 
-
 #p_msg=driver.find_element(By.XPATH, "//a[normalize-space()='Angel One']/parent::td").text
 #print(p_msg)
 
 #child
+
 # our self element not have child so we go to ancestor and pick that child element
 
 child=driver.find_elements(By.XPATH, "//a[normalize-space()='Angel One']/ancestor::tr/child::td")
 print(len(child)) # return all the elements to that td category
 
 #ancestor
+
 # child element data will show
 ar=driver.find_element(By.XPATH, "//a[normalize-space()='Angel One']/ancestor::tr")
 print(ar)
@@ -272,7 +314,9 @@ fol=driver.find_elements(By.XPATH, "//a[normalize-space()='Angel One']/ancestor:
 print(len(fol))
 
 #following sibling   (subset of following)
+
 #we dont have siblings for self so we go the ancestor and find siblings
+
 fol_sib=driver.find_elements(By.XPATH, "//a[normalize-space()='Angel One']/ancestor::tr/following-sibling::*")
 print(len(fol_sib))
 
@@ -286,7 +330,6 @@ print(len(pre))
 pre_sib=driver.find_elements(By.XPATH, "//a[normalize-space()='Angel One']/ancestor::tr/preceding-sibling::tr")
 print(len(pre_sib))
 
-
 driver.quit()
 time.sleep(100)
 """
@@ -294,47 +337,48 @@ time.sleep(100)
 
 # DAY - 5
 """
-1.application commands
-2.conditional commands
-3.browser commands
-4.navigational commands
-5.wait commands
+1. Application commands               - Get , title , current_URL , Page_source
+2. Conditional commands               - is_enabled,is_disabled,is_selected
+3. Browser commands                   - Close , quit
+4. Navigational commands              - Bach , refresh , forward
+5. Wait commands                      - implicit and explicit
 
 
-application commands
-get - opening the app URL
-title - to capture the title of current webpage
-current_url - capture current_url of the web page
-page_source - capture source code of the page
+Application commands:
+
+1. get         - opening the app URL
+2. title       - to capture the title of current webpage
+3. current_url - capture current_url of the web page
+4. page_source - capture source code of the page
 
 application elements done by driver
 
-conditional commands 
-is_displayed   - element is present in the webpage or not   
-is_enabled     - element is enabled(element do some action) returns true.
-is_selected    - check radio and checkboxes is selected returns true or false
+Conditional commands 
+
+1. is_displayed   - element is present in the webpage or not   
+2. is_enabled     - element is enabled(element do some action) returns true.
+3. is_selected    - check radio and checkboxes is selected returns true or false
 
 conditional elements done by web_elements
 
-import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
+
 
 BROWER COMMANDS
 
 Close()  -  simply close the browser but backend process is running , close one browser at a time
 Quit()  -  close browser along with process . close all the browsers
 
+Navigational commands
 
-navigational commands
-back
-forward
-refresh
-
-
+1. back
+2. forward
+3. refresh
 
 
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
 driver.implicitly_wait(20)
@@ -349,8 +393,8 @@ driver.quit()   """
 
 """driver.get("https://demo.nopcommerce.com/register")
 search=driver.find_element(By.XPATH,"//input[@id='small-searchterms']")
-print("Display status:",search.is_displayed())
-print("enabled status:",search.is_enabled())
+print("Display status:",search.is_displayed())       # True
+print("enabled status:",search.is_enabled())         # True
 
 #is_selected for radio and checkbox
 
@@ -358,8 +402,8 @@ rd_female=driver.find_element(By.XPATH,"//input[@id='gender-female']")
 rd_male=driver.find_element(By.XPATH,"//input[@id='gender-male']")
 
 rd_female.click()
-print(rd_female.is_selected())
-print(rd_male.is_selected())
+print(rd_female.is_selected())        # True
+print(rd_male.is_selected())          # False
 
 time.sleep(100)
 driver.quit()
@@ -370,20 +414,20 @@ driver.quit()
 driver.get("https://opensource-demo.orangehrmlive.com/")
 driver.get("https://www.amazom.com")
 
-driver.back()   #back to orange app
-driver.forward()   # go to amazon
+driver.back()      #back to orange app
+driver.forward()   #go to amazon
 driver.refresh()   #refresh the page
 time.sleep(10)
 driver.quit()  
 
 
 driver.get("https://demo.nopcommerce.com/")
-#find element -- matching with one ele
+# find element -- matching with one ele
 
 element_var=driver.find_element(By.XPATH,"//input[@id='small-searchterms']")
 element_var.send_keys("Apple Phone")
 
-#locaters matching with the multiple web elements
+# locaters matching with the multiple web elements
 
 element_var=driver.find_element(By.XPATH,"//div[@class='footer']//a")
 print(element.text)   # only print one web element because of find_element
@@ -408,6 +452,7 @@ driver.quit()
 #print(elements[0].send_keys())  # we extract web elements and send actions
 
 # locators matching with multiple web elements
+
 driver.get("https://demo.nopcommerce.com/")
 element_var=driver.find_elements(By.XPATH,"//div[@class='footer']//a")
 print(len(element_var))
@@ -417,6 +462,7 @@ for ele in element_var:
 
 
 #element not avaliable
+
 ele=driver.find_elements(By.LINK_TEXT,"Log")
 print(len(ele))  # not show any exception
 
@@ -447,23 +493,24 @@ print("result of get_attribute",log.get_attribute('type')) """
 # Wait commands - used for syrnchronizing prblm
 
 """
-
-
 time.sleep (maximum time wait for that element)
+
 advantage 
---- simple to use
+-> simple to use
+
 Disadvantage
---- performance of the script is very poor
---- if the element is not available within the time mentioned still there is a chance of getting exception 
+
+-> performance of the script is very poor
+-> if the element is not available within the time mentioned still there is a chance of getting exception 
 
 1.implicit wait(wait for element if element is available proceed to next)
 
 ADVANTAGE
 
---- Single statement
---- performance will not be reduced (if the element is available within the time it proceed to execute further
+-> Single statement
+-> performance will not be reduced (if the element is available within the time it proceed to execute further
 DISADVANTAGE
--- If the element is not available within the time mentioned , still there is a chance of getting exception
+-> If the element is not available within the time mentioned , still there is a chance of getting exception
 
 # Amount of time driver should wait to find the element(if you call next condition it perform
 # implicitly_wait - - it is applicable to all the below statements
@@ -477,13 +524,10 @@ poll_frequency=2  - total 10 sec in tha every 2 sec it goes and try to find that
 mywait=WebDriverWait(driver,10,poll_frequency,ignored_exceptions=[NoSuchElementException,ElementNotVisibleException,ElementsNotSelectableException,Exception])
 
 Adv
--- More effectively work
+-> More effectively work
 
 Dis 
-
---  Multiple places enter feels some difficulty
-
-
+-> Multiple places enter feels some difficulty
 
 
 import time
@@ -494,8 +538,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 driver = webdriver.Chrome()
 mywait=WebDriverWait(driver,10)  # explicit wait declaration
-
-
 
 #driver.implicitly_wait(20)
 driver.get("https://www.google.com/")
@@ -538,6 +580,7 @@ print(len(checkboxes))
     #checkbox.click()
 
 # Select multiple
+
 for checkbox in checkboxes:
     weekname=checkbox.get_attribute('id')
     if weekname=="monday" or weekname=="sunday":
@@ -557,6 +600,7 @@ driver.quit()
 for i in range(2):
     checkboxes[i].click()
 #or
+
 for i in range(len(checkboxes)):
     if i<2:
         checkboxes[i].click()
@@ -578,7 +622,7 @@ for checkbox in checkboxes:
 
 1.Internal link   - Link available on same page(naviagte to same page)
 2.External link   - link navigate to other webpage
-3.Broken link    - Target link is not available
+3.Broken link     - Target link is not available
 
 import time
 from selenium import webdriver
@@ -593,17 +637,13 @@ driver.implicitly_wait(20)
 driver.find_element(By.LINK_TEXT,"Digital downloads").click()
 #driver.find_element(By.PARTIAL_LINK_TEXT,"Digital").click()
 
-
 links=driver.find_elements(By.TAG_NAME,'a')
 print(len(links))
-
-
 
 for link in links:
     print(link.text)  # link is web element we cannot directly print so that we use text
 time.sleep(100)
 driver.quit()
-
 
 
 import time
@@ -646,10 +686,16 @@ driver.implicitly_wait(20)
 driver.get("https://www.opencart.com/index.php?route=account/register")
 
 # Find the dropdown element
+
 drp_coun_els = driver.find_element(By.XPATH, "//select[@id='input-country']").click()
 drp_coun = Select(drp_coun_els)
 
 #select option from dropdown
+
+1.select_by_visible_text
+2.select_by_index
+3.select_by_value
+
 
 #drp_coun.select_by_visible_text("Angola")
 #drp_coun.select_by_value("6")
@@ -662,10 +708,12 @@ print("all options is:",len(all_opt))
 print(all_opt)
 
 # Iterate through options and print their text
+
 for option in all_opt:
     print(option.text)
 
-#select option from drop down without using buildin functions
+#select option from drop down without using build-in functions
+
 for option in all_opt:
     if option.text=="Angola":
         option.click()
@@ -739,9 +787,16 @@ driver = webdriver.Chrome()
 driver.get("https://theinternet.herokuapp.com/basic_auth")  #normal url
 #driver.get("https://admin:admin@theinternet.herokuapp.com/basic_auth")
 time.sleep(50)
-driver.quit() """
+driver.quit() 
 
 # Handle frames or Iframes
+
+#SWITCH TO FRAMES
+
+switch_to.frame(name of the frame)
+switch_to.frame(id of the frame)
+switch_to.frame(webelement)
+switch_to.frame(0) 
 
 import time
 from selenium import webdriver
@@ -751,5 +806,88 @@ from selenium.webdriver.support.ui import Select
 driver = webdriver.Chrome()
 driver.implicitly_wait(20)
 driver.get("https://www.selenium.dev/selenium/docs/api/java/index.html?overview-summary.html")
-driver.find_element(By.LINK_TEXT,"//a[normalize-space()='org.openqa.selenium']").click()
+driver.switch_to.frame("packageListFrame")
+driver.find_element(By.LINK_TEXT,"org.openqa.selenium").click()
+driver.switch_to.default_content()   #go back to main page [driver cannot move one frame to another frame]
+driver.switch_to.frame("packageFrame")
+driver.find_element(By.LINK_TEXT,"WebDriver").click()
+driver.switch_to.default_content() 
+driver.switch_to.frame("classFrame")
+driver.find_element(By.XPATH,"//li[@class='nav-bar-cell1-rev']").click()
+
+time.sleep(50)
+driver.quit()
+
+###########
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
+
+driver = webdriver.Chrome()
+driver.get("https://demo.automationtesting.in/Frames.html")
+driver.implicitly_wait(20)
+driver.find_element(By.XPATH,"//a[normalize-space()='Iframe with in an Iframe']").click()
+
+outerframe=driver.find_element(By.XPATH,"//iframe[@src='MultipleFrames.html']")
+driver.switch_to.frame(outerframe)
+
+innerframe=driver.find_element(By.XPATH,"/html/body/section/div/div/iframe")
+driver.switch_to.frame(innerframe)
+
+driver.find_element(By.XPATH,"//input[@type='text']").send_keys("Welcome")
+driver.switch_to.frame() # have one parent frame(outer i frame)
+
+time.sleep(50)
+driver.quit()
+
+#### BROWSE WINDOWS ####
+
+switch to window
+
+current_window_handle - window id of single browser window
+window_handles - window id of multiple browser windows """
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://opensource-demo.orangehrmlive.com/")
+driver.maximize_window()
+
+#windowid=driver.current_window_handle
+#print(windowid)  #454CD7756633724EF896F93D4BDAA09E
+# every time it gives a Diff windowid
+
+driver.find_element(By.LINK_TEXT,"OrangeHRM, Inc").click()
+windowids=driver.window_handles
+
+
+## APPROACH 1
+
+parentwindowid=windowids[0]
+childwindowid=windowids[1]
+
+print(parentwindowid,childwindowid)
+
+driver.switch_to.window((childwindowid))
+print("title of child: ",driver.title)
+
+driver.switch_to.window(parentwindowid)
+print("title of parent: ",driver.title)
+
+## APPROACH 2
+
+for win in windowids:
+    driver.switch_to.window(win)
+    print(driver.title)
+    if driver.title=="OrangeHRM":
+        driver.close()    # close the child window
+
+time.sleep(20)
+
 

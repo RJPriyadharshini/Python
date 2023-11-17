@@ -109,6 +109,7 @@ y=["pavi",23,20000]
 z=dict((zip(x,y)))   # zip combine the data using the index
 print(z)
 
+
 fruits={"apple":100 , "orange":80 , "grapes":60}
 order={"apple":4 , "orange":8 , "grapes":5}
 x={key:val*fruits[key] for key,val in order.items()}
