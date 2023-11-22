@@ -60,7 +60,7 @@ print(sum(x))
 #lambda - support functional program
 
 s=lambda x,y:x if x>y else y       # used comprehension( we can give only one condition is allowed)
-print(s(10,5))  """
+print(s(10,5))  
 
 #GUVI CLASS - DAY 4 PYTHON
 def fun():
@@ -85,14 +85,14 @@ print(z)
 # r -read txt file
 # w - write the data into txt file
 # a - append - add extra line into the file
-# x - create the txt file"""
+# x - create the txt file
 
 f=open("guvi.txt","w")
 f.write("first line")
 f.close()
 
-"""import os
-os.remove("text.txt")  """  #remove the text file from os
+import os
+os.remove("text.txt")  #remove the text file from os
 
 #list comprehension
 
@@ -239,9 +239,9 @@ def cubes(n):
 print(list(cubes(10)))
 
 # REGULAR EXPRESSIONS
-""" ^ - starts with
+ ^ - starts with
 $ - ends with
-* - one or more occurence"""
+* - one or more occurence
 
 import re
 text="regular expression is of the module in the python"
@@ -265,7 +265,7 @@ if __name__=="__main__":
 
 x=(64,65,"A")
 Z=max(x)
-print(Z)
+print(Z)"""
 
 
 
@@ -609,8 +609,19 @@ document.write
 
 
 
+####JSON - java script oriented notation
+-> in the form of dictionary(Key and value)
+-> html , css , dom is a script type of language
+
 """
+import requests
 
-
+# = "https://api.openbrewerydb.org/breweries"
+url="http://fakerestapi.azurewebsites.net/api/v1/Books"
+r1 = requests.get(url)  # to set verify=false to disable SSL Verification
+r1.json()
+if r1.status_code == 200:
+    x = data[0]['id']
+    print(x)
 
 

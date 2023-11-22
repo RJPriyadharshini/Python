@@ -48,7 +48,7 @@ for z in totalseats:
         print("seat added")
         break
     else:
-        print(bookedseats)"""
+        print(bookedseats)
 
 
 #write a function using lambda function to check every element of a list is an integer r string
@@ -60,8 +60,12 @@ def fun(listt):
     y=list(filter(lambda(y:y.append(listt) if type(listt) is string else y.append(listt))))
     print(y)
 
-listt[1,2,3,"dss","fff"]
+listt[1,2,3,"dss","fff"]"""
 
-
-
+S=input()
+rev=S[::-1]
+if S==rev:
+    print("yes")
+else:
+    print("no")
 
