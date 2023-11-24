@@ -38,11 +38,13 @@ time.sleep(5)
 driver.close()  """
 
 """DAY -2
+
+
 LOCATORS 
 
 Identify elements in the webpage we use "locators"
 
-Lacators 
+Locators 
 
   1.id 
   2.Name
@@ -51,7 +53,7 @@ Lacators
   5.ClassName
   6.TagName
   
-Customized Locators - CSS SELECTOR AND  XPATH
+Customized Locators - CSS SELECTOR AND XPATH
 
 
 CSS SELECTOR 
@@ -422,12 +424,12 @@ driver.quit()
 
 
 driver.get("https://demo.nopcommerce.com/")
-# find element -- matching with one ele
+# find element -- matching with one element
 
 element_var=driver.find_element(By.XPATH,"//input[@id='small-searchterms']")
 element_var.send_keys("Apple Phone")
 
-# locaters matching with the multiple web elements
+# locators matching with the multiple web elements
 
 element_var=driver.find_element(By.XPATH,"//div[@class='footer']//a")
 print(element.text)   # only print one web element because of find_element
@@ -741,14 +743,14 @@ from selenium.webdriver.support.ui import Select
 driver = webdriver.Chrome()
 driver.implicitly_wait(20)
 driver.get("https://the-internet.herokuapp.com/javascript_alerts")
-#open alert window
+# open alert window
 driver.find_element(By.XPATH,"//button[normalize-space()='Click for JS Prompt']").click()
 time.sleep(5)
 alt_win=driver.switch_to.alert  # switch to alert window
 alt_win.text
 alt_win.send_keys("User input 'Welcome'")
-#alt_win.accept() #close alt window by using ok button.
-alt_win.dismiss() #close alt window using cancel button
+alt_win.accept() #close alt window by using ok button.
+#alt_win.dismiss() #close alt window using cancel button
 
 time.sleep(50)
 driver.quit()
@@ -785,7 +787,7 @@ from selenium.webdriver.support.ui import Select
 driver = webdriver.Chrome()
 #driver.implicitly_wait(20)
 driver.get("https://theinternet.herokuapp.com/basic_auth")  #normal url
-#driver.get("https://admin:admin@theinternet.herokuapp.com/basic_auth")
+#driver.get("https://admin:admin@theinternet.herokuapp.com/basic_auth")   # value passed in that URL
 time.sleep(50)
 driver.quit() 
 
@@ -795,8 +797,8 @@ driver.quit()
 
 switch_to.frame(name of the frame)
 switch_to.frame(id of the frame)
-switch_to.frame(webelement)
-switch_to.frame(0) 
+switch_to.frame(web element)
+switch_to.frame(0) by using index 
 
 import time
 from selenium import webdriver
@@ -847,7 +849,7 @@ driver.quit()
 switch to window
 
 current_window_handle - window id of single browser window
-window_handles - window id of multiple browser windows """
+window_handles - window id of multiple browser windows 
 
 import time
 from selenium import webdriver
@@ -889,5 +891,88 @@ for win in windowids:
         driver.close()    # close the child window
 
 time.sleep(20)
+"""
+
+##### DAY -9 ###
+
+"""import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+chrome_options = Options()
+chrome_options.add_argument("--disable-notifications")
+driver = webdriver.Chrome()
+driver.get("https://whatmylocation.com/")
+
+driver.quit()
 
 
+###WEB TABLE####
+ 1. Static web table
+ 2. Dynamic webtable
+ td - table data
+ 
+ 
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# Create a Chrome WebDriver instance
+driver = webdriver.Chrome()
+
+# Navigate to the website
+driver.get("https://testautomationpractice.blogspot.com/")
+
+# Find the number of rows and columns in the table
+rows = driver.find_elements(By.XPATH, "//table[@name='BookTable']//tr")
+columns = driver.find_elements(By.XPATH, "//table[@name='BookTable']//tr[1]/th")
+num_rows = len(rows)
+num_columns = len(columns)
+
+print("Number of rows:", num_rows)
+print("Number of columns:", num_columns)
+
+# READ SPECIFIC ELEMENT
+specific = driver.find_element(By.XPATH, "//table[@name='BookTable']/tbody/tr[5]/td[1]").text
+print("Specific element:", specific)
+
+# Read all the elements
+
+for i in range(2, num_rows + 1):          #2,3,4,5,6,7,8
+    for j in range(1, num_columns + 1):    # 1,2   1,3  1,4
+        specific = driver.find_element(By.XPATH, "//table[@name='BookTable']/tbody/tr["+str(i)+"]/td["+str(j)+"]").text         #1st convert to str , enter values in double quotes , add + before and after the value
+        print(specific)
+    print()
+
+# Read data based on condition
+
+for i in range(2, num_rows + 1):          #2,3,4,5,6,7,8
+    Author=specific = driver.find_element(By.XPATH, "//table[@name='BookTable']/tbody/tr["+str(i)+"]/td[2]").text
+    if Author=="Amit":
+        a=driver.find_element(By.XPATH,"//table[@name='BookTable']/tbody/tr[2]/td[1]").text
+        b=driver.find_element(By.XPATH,"//table[@name='BookTable']/tbody/tr[7]/td[1]").text
+        print("author is:",Author,"  ","book is:",a)
+        print("author is:",Author,"  ","book is:",b)
+    elif Author=="Mukesh":
+        book=driver.find_element(By.XPATH,"//table[@name='BookTable']/tbody/tr[3]/td[1]").text
+        price=driver.find_element(By.XPATH,"//table[@name='BookTable']/tbody/tr[3]/td[4]").text
+        print("book is:",book, "    ","price is:",price)
+
+
+driver.quit()
+
+
+## DAY -10 ####
+
+DATE PICKER
+1. Standard
+2. Non-standard (Customized)
+
+#mm/dd/year
+
+    
+    """
