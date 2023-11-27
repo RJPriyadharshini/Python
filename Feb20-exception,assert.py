@@ -37,7 +37,7 @@ num=input("enter num: ")
 if type(num)!=int:
     raise Exception("Not allowed")      # raise exception
 else:
-    print(f'{num}')"""
+    print(f'{num}')
 
 #exp date
 exp=[2021,2022,2023,2024,2025]
@@ -50,6 +50,15 @@ exp=[2031,2032,2033,2034,2035]
 for x in exp:
     assert x>2030, 'Alert ****** expired medicine **** ALERT'
     print(f' {x} - market')
+
+"""
+
+
+import time
+time.clock()
+
+
+
 
 
 

@@ -48,7 +48,6 @@ for i in range(rows, 0, -1):         # 5,4,3,2,1
 rows = 5
 # reverse loop
 for i in range(rows, 0, -1):     # 5,4,3,2,1
-    num = i
     for j in range(0, i):        # 0,5 (5 TIMES)  0,4  0,3  0,2  0,1
         print(j, end=' ')
     print("\r")
@@ -84,20 +83,20 @@ print(y.split(","))
 print(y.find("hi", 4))
 print(y.replace("hi", "HI"))
 print(y.endswith("lp"))
-print(y.ljust(10,'*')
-print(y.rjust(10,'*')
-print(y.zfill(10))
-print(list(enumerate(y)))
+print(y.ljust(23,'*'))    # Attach the symbol on that position in right side
+print(y.rjust(23,'#'))    # Attach the symbol on that position in lift side
+print(y.zfill(22))        # In that position add the 0 value if we didn't specific the value
+print(list(enumerate(y)))  # All the values and the position
 
-x = " ## How are you %%"
-print(x.lstrip("#"))
-print(x.rstrip())
-print(x.strip("#%"))
+x = "## How are you %%"
+print(x.lstrip("#"))   # remove that value from left side
+print(x.rstrip("%"))      # remove that value from right side
+print(x.strip("#%"))   # remove from both sides
 print(x.encode())
-print(x.partition("H"))
+print(x.partition("are"))   # before and after the specific word the partition occur
 
 y="hi buddy its cool"
-a=y.split()
+a=y.split()    # split the value
 print(a)
 z=" ".join(a)
 print(z)
@@ -115,7 +114,7 @@ for j in range(1, rows + 1):
 
 a=[2,5,3,4]
 a[2:2]=[2]
-print(a)
+print(a)     # new value addes in center
 
 my_dict={"a":1,"b": 2,"c":3}
 result=my_dict.values()

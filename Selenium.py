@@ -3,8 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-
-
 driver = webdriver.Chrome()
 driver.implicitly_wait(10)
 
@@ -214,7 +212,7 @@ from selenium.webdriver.support import expected_conditions as EC
 driver = webdriver.Chrome()
 driver.implicitly_wait(20)
 driver.get("https://www.orangehrm.com/")
-#relative xpath
+# relative xpath
 driver.find_element(By.XPATH, "//button[@class='btn btn-ohrm btn-free-demo']").click()
 
 driver.quit()
@@ -338,6 +336,8 @@ time.sleep(100)
 
 
 # DAY - 5
+
+
 """
 1. Application commands               - Get , title , current_URL , Page_source
 2. Conditional commands               - is_enabled,is_disabled,is_selected
@@ -423,7 +423,7 @@ time.sleep(10)
 driver.quit()  
 
 
-driver.get("https://demo.nopcommerce.com/")
+driver.get ("https://demo.nopcommerce.com/")
 # find element -- matching with one element
 
 element_var=driver.find_element(By.XPATH,"//input[@id='small-searchterms']")
@@ -482,7 +482,7 @@ print("result of get_attribute",email.get_attribute('value'))
 
 #<input id="123"  name="xyz" > Email:</input>  .... Email is inner text
 # Text - returns Inner text of the element
-#get_attribute - returns values of any attribute of web element
+# get_attribute - returns values of any attribute of web element
 
 log=driver.find_element(By.XPATH,"//button[normalize-space()='Log in']")
 print("result of text",log.text)
@@ -545,7 +545,7 @@ mywait=WebDriverWait(driver,10)  # explicit wait declaration
 driver.get("https://www.google.com/")
 searchbox=driver.find_element(By.NAME,'q')
 searchbox.send_keys("Selenium")
-#searchbox.submit()    # Press enter key
+#searchbox.submit()     # Press enter key
 
 #driver.find_element(By.XPATH,"//span[normalize-space()='selenium']").click()
 #driver.find_element(By.XPATH,"//h3[text()='Selenium']").click()
@@ -625,6 +625,7 @@ for checkbox in checkboxes:
 1.Internal link   - Link available on same page(naviagte to same page)
 2.External link   - link navigate to other webpage
 3.Broken link     - Target link is not available
+
 
 import time
 from selenium import webdriver
@@ -974,5 +975,282 @@ DATE PICKER
 
 #mm/dd/year
 
-    
-    """
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver=webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("https://jqueryui.com/datepicker/")
+driver.switch_to.frame(0)
+driver.find_element(By.XPATH,"//input[@id='datepicker']").click()
+
+date="11"
+month="March"
+year="2020"
+
+while True:
+    mon=driver.find_element(By.XPATH,"//span[@class='ui-datepicker-month']").text
+    yr=driver.find_element(By.XPATH,"//span[@class='ui-datepicker-year']").text
+
+    if mon==month and yr==year:
+        break
+    else:
+        driver.find_element(By.XPATH,"//*[@id='ui-datepicker-div']/div/a[1]/span").click()
+
+
+dates=driver.find_elements(By.XPATH," //table[@class='ui-datepicker-calendar']/tbody/tr/td/a")
+for ele in dates:
+    if ele.text==date:
+        ele.click()
+        break
+
+time.sleep(20)
+driver.quit()
+
+
+###### DAY -11 ####
+
+Mouse operations
+
+1. ActionChains   -  move_to_element(element)
+2. Right click    -  context_click(element)
+3. Double click   -  double_click(element)
+4. Drag and drop  -  drag_and_drop(source,target)
+
+drag_and_drop_by_offset   - for range 
+
+import time
+from selenium import webdriver
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://opensource-demo.orangehrmlive.com/")
+driver.find_element(By.NAME, "username").send_keys("Admin")
+driver.find_element(By.NAME, 'password').send_keys("admin123")
+driver.find_element(By.XPATH, "//button[@type='submit']").click()
+
+admin=driver.find_element(By.XPATH,"//*[@id='menu_admin_viewAdminModule']/b")
+user_man=driver.find_element(By.XPATH,"//*[@id='menu_admin_UserManagement']")
+users=driver.find_element(By.XPATH,"//*[@id='menu_admin_viewSysytemUsers']")
+
+#MOUSEHOVER
+
+act=ActionChains(driver)   # pass driver
+#mouseHover
+# Perform is one method by that only action will execute
+act.move_to_element(admin).move_to_element(user_man).move_to_element(users).click().perform()
+driver.quit()
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://swisnl.github.io/jQuery-contextMenu/demo.html")
+Button=driver.find_element(By.XPATH,"//span[normalize-space()='right click me']")
+#right click
+act=ActionChains(driver)
+act.context_click(Button).perform()
+driver.find_element(By.XPATH,"/html/body/ul/li[1]").click()
+alert=driver.switch_to.alert
+alert.accept()
+driver.implicitly_wait(2)
+
+time.sleep(10)
+driver.quit()
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick3")
+driver.switch_to.frame("iframeResult")   # switch to frame
+
+field1 = driver.find_element(By.XPATH, "//input[@id='field1']")
+field1.clear()
+field1.send_keys("Welcome")
+
+# Corrected XPath for the button
+button = driver.find_element(By.XPATH, "//button[text()='Copy Text']")
+
+act = ActionChains(driver)
+act.double_click(button).perform()
+
+time.sleep(2)  # Add a small delay to see the changes before quitting the browser
+
+driver.quit()
+
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://demoqa.com/droppable/")
+sour_ele=driver.find_element(By.XPATH,"//*[@id='draggable']")
+tar_ele=driver.find_element(By.XPATH,"//*[@id='droppable']")
+# drag and drop
+act=ActionChains(driver)
+act.drag_and_drop(sour_ele,tar_ele).perform()
+driver.close()
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://www.jqueryscript.net/demo/Price-Range-Slider-jQuery-UI/")
+
+# Range drag min to max( 1 to 500)
+
+min=driver.find_element(By.XPATH,"//body//div//span[1]")
+max=driver.find_element(By.XPATH,"//body//div//span[2]")
+
+print("Before Moving.....")
+print(min.location)  # X and Y axis  {x:59 , y:252}
+print(max.location)  # (x:412, y:250)
+
+# what we added or reduced with x, it is an approx value nearby range will execute
+act=ActionChains(driver)
+act.drag_and_drop_by_offset(min,100,0).perform()  # 100+59 - x value
+act.drag_and_drop_by_offset(max,-39,0).perform()   #421-39  - x value
+
+print(min.location)
+print(max.location)
+
+driver.quit()
+
+"""
+# Scrolling operation
+"""
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://www.countries-ofthe-world.com/flags-of-the-world.html")
+driver.maximize_window()
+
+
+
+# 1. scroll down page by pixel
+
+driver.execute_script("window.scrollBy(0,3000)","")   # 3000 is value
+value=driver.execute_script("return window.pageYOffset;")
+print("N.o of pixel moved",value)
+time.sleep(5)
+driver.quit()
+
+
+#2. Scroll down page till the element is visible
+
+flag=driver.find_element(By.XPATH,"//img[@alt='Flag of India']")
+driver.execute_script("arguments[0].scrollIntoView();", flag)
+value=driver.execute_script("return window.pageYOffset;")
+print("Number of pixels moved:",value)
+time.sleep(5)
+driver.quit()
+
+# 3. SCroll down page till end
+
+driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
+value=driver.execute_script("return window.pageYOffset;")
+print("Number of pixels moved:",value)
+
+
+#4.Scrool to starting position
+
+time.sleep(5)  # Wait for 5 seconds
+driver.execute_script("window.scrollBy(0,-document.body.scrollHeight)")
+value = driver.execute_script("return window.pageYOffset;")
+print("Number of pixels moved:", value)
+
+driver.quit()
+
+"""
+
+"""
+#### DAY -12 #####
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver import ActionChains
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(10)
+driver.get("https://text-compare.com/")
+
+# KEYBOARD ACTION
+
+# cltr+a ctrl+c tab ctrl+v
+
+input1 = driver.find_element(By.ID, "inputText1")
+input2 = driver.find_element(By.ID, "inputText2")
+
+name = "you are welcome"
+input1.send_keys(name)
+
+act = ActionChains(driver)
+
+act.key_down(Keys.CONTROL)  # press ctrl key
+act.send_keys("a")  # press a
+act.key_up(Keys.CONTROL)  # [release the key]
+act.perform()
+
+# Write in a single line
+
+act.key_down(Keys.CONTROL).send_keys("c").key_up(Keys.CONTROL).perform()
+
+# press tab key to navigate to input
+
+act.send_keys(Keys.TAB).perform()
+
+# paste
+
+act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
+
+driver.find_element(By.XPATH, "//div[@class='compareButtonText']").click()
+
+print("Entered Text:", name)
+
+time.sleep(10)  # Adding a delay for demonstration purposes
+driver.quit()
+
+"""
+
+# HOW TO DOWNLOAD THE FILE
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver=webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("https://file-examples.com/index.php/sample-documents-download/sample-doc-download/")
+
+driver.quit()
+
+
+
+

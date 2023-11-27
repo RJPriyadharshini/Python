@@ -22,21 +22,20 @@ for x in table:
     inhand = x + inhand  # first it take 10 as inhand then loop continuous (10+20+50+100+500+600)
 print(inhand)
 
+
+
 A = "Hi hello, how are you , how are your friends , our friend are good"
 find = "our"
 repl = "OUR"
 z = " "
 for k in A.split():
     if k == find:
-        print(repl, end="")
-        z = z + " " + repl
+        print(repl, end=" ")
     else:
-        print(k,end="")
-        z= z + " " + k
-print(z)
+        print(k,end=" ")
 
 
-
+#doubt
 totalseats = {1, 2, 3, 4, 5, 6, 7, 8}
 bookedseats= {2, 3, 7}
 z = int(input("enter seats: "))
@@ -50,6 +49,7 @@ for z in totalseats:
     else:
         print(bookedseats)
 
+DOUBT
 
 #write a function using lambda function to check every element of a list is an integer r string
 
@@ -62,10 +62,5 @@ def fun(listt):
 
 listt[1,2,3,"dss","fff"]"""
 
-S=input()
-rev=S[::-1]
-if S==rev:
-    print("yes")
-else:
-    print("no")
+
 

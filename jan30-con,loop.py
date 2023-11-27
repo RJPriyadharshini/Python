@@ -1,4 +1,4 @@
-year = input("Enter year: ")
+year = input("Enter year: ")     # DOUBT
 leap_year=input(year+" is leap year Y/N: ")
 months = ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec")
 for month in months:
@@ -47,28 +47,30 @@ a={1,2,3,4,5}
 b={1,2,3}
 diff=a.difference(b)
 print(diff)
+
+
 # multiply two numbers without using *
 
-x=int(input("enter a number1: "))
-y=int(input("enter a number2: "))
+x=int(input("enter a number1: "))   #10
+y=int(input("enter a number2: "))   #15
 a=0
 b=0
 while a<x:    #repeative addition
-    z=b+y
-    b=z
-    a+=1
-    print(z)
+    z=b+y     # 15  (15+15=30)   (30+15=45)
+    b=z       #15    30
+    a+=1      # one time
+    print(z)  # 15
 print(z)
 
 #divide two numbers without using /
 
-x=int(input("enter a number1: "))
-y=int(input("enter a number2: "))
+x=int(input("enter a number1: "))  # 10
+y=int(input("enter a number2: "))  #5
 a=1
 b=x
 while a<x:
-    z=b-y
-    b=z
+    z=b-y       # 10-5=5
+    b=z         # 5
     if b<y:
         break
     a+=1
