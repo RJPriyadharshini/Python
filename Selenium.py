@@ -1087,6 +1087,13 @@ button = driver.find_element(By.XPATH, "//button[text()='Copy Text']")
 act = ActionChains(driver)
 act.double_click(button).perform()
 
+field2=driver.find_element(By.XPATH,"//input[@id='field2']")
+
+if field1.text==field2.text:
+    print("matched")
+else:
+    print("unmatched")
+    
 time.sleep(2)  # Add a small delay to see the changes before quitting the browser
 
 driver.quit()
@@ -1241,15 +1248,372 @@ driver.quit()
 
 # HOW TO DOWNLOAD THE FILE
 
+# FIREFOX BROWSER
+
+"""SKIPPED THE TOPIC - FILE DOWNLOAD """
+
+
+"""
+
+# UPLOAD THE FILE SCENARIO
+
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 driver=webdriver.Chrome()
 driver.implicitly_wait(20)
-driver.get("https://file-examples.com/index.php/sample-documents-download/sample-doc-download/")
+driver.get("https://www.foundit.in/")
+driver.find_element(By.XPATH,"buttonContainer_secondaryBtn__text").click()
+driver.find_element(By.XPATH,"//input[@id='file-upload']").send_keys("C:\\Users\\a250580\\OneDrive - Syneos Health\\Pictures\\sample.pdf")
 
 driver.quit()
+
+
+#PIM - ADD EMPLOYEE
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+
+driver = webdriver.Chrome()
+
+driver.get("https://opensource-demo.orangehrmlive.com/")
+driver.implicitly_wait(10)
+
+driver.find_element(By.NAME, "username").send_keys("Admin")
+driver.find_element(By.NAME,"password").send_keys("admin123")
+driver.find_element(By.XPATH, "//button[@type='submit']").click()
+driver.find_element(By.XPATH,"//span[normalize-space()='PIM']").click()
+driver.find_element(By.XPATH, "//a[normalize-space()='Add Employee']").click()
+
+# Click on the button to open the file dialog
+overlay = WebDriverWait(driver, 2).until(EC.invisibility_of_element_located((By.CLASS_NAME, "oxd-form-loader")))
+
+# Click on the button to open the file dialog
+file_input_button = driver.find_element(By.XPATH, "//i[@class='oxd-icon bi-plus']")
+file_input_button.click()
+
+# Locate the file input element inside the file dialog
+file_input = driver.find_element(By.XPATH, "//input[@type='file']")
+
+# Send the file path to the file input element
+file_path = "C://Users//a250580//OneDrive - Syneos Health//Pictures//Screenshots//https status code.png"
+file_input.send_keys(file_path)# Wait for the file to be uploaded
+
+time.sleep(25)
+driver.quit()
+
+
+
+
+# DAY-13 #####
+# How to capture the screenshot of the web page
+     1. get_screenshot_as_file
+     2. save_screenshot
+     3. get_screenshot_as_png
+     4. get_screenshot_as_png    # save snap as binary format
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+driver = webdriver.Chrome()
+driver.get('https://www.dummyticket.com/dummy-ticket-for-visa-application/')
+driver.find_element(By.XPATH,"//span[@id='select2-billing_country-container']").click()
+countries=driver.find_elements(By.XPATH,"//ul[@id='select2-billing_country-results']/li")
+print(len(countries))
+driver.implicitly_wait(5)
+for coun in countries:
+    if coun.text=="India":
+        coun.click()
+        break
+time.sleep(20)
+driver.quit()
+
+
+
+## BOOSTRAP DROPDOWN
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+try:
+    driver = webdriver.Chrome()
+    driver.implicitly_wait(20)
+    driver.get("https://demo.nopcommerce.com/")
+    driver.implicitly_wait(20)
+    driver.maximize_window()
+
+    # Add a delay to make sure the page is fully loaded before taking a screenshot
+    time.sleep(5)
+
+    # How to capture the screenshot of the web page
+    driver.save_screenshot("C:\\Users\\a250580\\OneDrive - Syneos Health\\Pictures\\Screenshots\\snap.png")
+    print("Screenshot saved successfully!")
+
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
+
+finally:
+    driver.quit()
+    
+
+# How to capture the screenshot of the web page
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import os   # operating sysytem
+
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("https://demo.nopcommerce.com/")
+driver.implicitly_wait(20)
+driver.maximize_window()
+
+#How to capture the screenshot of the web page
+
+#driver.save_screenshot(os.getcwd()+"\\snap.png")  # get current working directory
+
+#driver.get_screenshot_as_file("C:\\Users\\a250580\\OneDrive - Syneos Health\\Pictures\\Screenshots\\snap.png")
+
+driver.get_screenshot_as_png("C:\\Users\\a250580\\OneDrive - Syneos Health\\Pictures\\Screenshots\\snap.png")  # get snap as binary format
+
+time.sleep(10)
+driver.quit()
+
+
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import os   # operating sysytem
+from selenium.webdriver import Keys
+
+driver = webdriver.Chrome()
+driver.get("https://demo.nopcommerce.com/")
+driver.implicitly_wait(20)
+driver.maximize_window()
+
+reg=Keys.CONTROL+Keys.RETURN
+
+# Register to new tab
+
+#driver.find_element(By.XPATH,"//a[normalize-space()='Register']").send_keys(reg)
+
+
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import os   # operating sysytem
+from selenium.webdriver import Keys
+
+driver = webdriver.Chrome()
+
+# opens a new tab and switched to the new tab
+
+driver.get("https://www.opencart.com")
+driver.switch_to.new_window('tab')
+driver.get("https://www.orangehrm.com")
+
+# switched to new window
+
+driver.get("https://www.opencart.com")
+driver.switch_to.new_window('window')
+driver.get("https://www.orangehrm.com")
+
+time.sleep(10)
+driver.quit()
+
+
+
+# HOW TO HANDLE COOKIES
+1. It not a web element
+2. single cookies contain multiple attribute
+3. Dict format
+
+
+# COOKIES
+
+1. get_cookies()     - Get all the cookies
+2. add_cookies       - Add the cookies
+3. delete_cookies()  - Delete the specific ookies
+4. delete_all_cookies - Delete all the cookies
+
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import os   # operating sysytem
+
+
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("https://demo.nopcommerce.com/")
+
+# CAPTURE COOKIES FROM THE BROWSERS
+
+cookies=driver.get_cookies()
+print("size of cookies:",len(cookies))
+
+#for c in cookies:
+    #print(c.get('name'),":",c.get('value'))
+
+# ADD NEW COOKIES
+
+driver.add_cookie({"name":"added cookie","value":"123456"})
+cookies=driver.get_cookies()
+print("size added new of cookies:",len(cookies))
+
+# DELETE SPECIFIC COOKIE FROM BROWSER
+
+driver.delete_cookie("added cookie")
+cookies=driver.get_cookies()
+print("size delete the cookies:",len(cookies))
+
+
+# DELETE ALL THE COOKIES
+
+driver.delete_all_cookies()
+cookies=driver.get_cookies()
+print("size of all deleted cookies:",len(cookies))
+
+driver.quit()
+
+# HEADLESS MODE
+Dont see any application in front end but the script run in backend
+
+Advantage
+1. Do multiple task
+2. Excecution will be fast and reduce time
+
+Disadvantage
+
+1. Do know the application flow
+
+
+# Different from browser to browser
+
+
+
+from selenium import webdriver
+
+
+def headless_chrome():
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Run Chrome in headless mode (without a graphical user interface)
+
+    driver = webdriver.Chrome(options=options)
+    return driver
+
+
+driver = headless_chrome()
+driver.get("https://demo.nopcommerce.com/")
+print("Title:", driver.title)
+print("URL:", driver.current_url)
+driver.quit()
+
+#EDGE 
+
+
+from selenium import webdriver
+def headless_edge():
+    options=webdriver.ChromeOptions()
+    options.add_argument('--headless')
+
+    driver=webdriver.Edge(options=options)
+    return driver
+
+driver = headless_edge()
+driver.get("https://demo.nopcommerce.com/")
+print("Title:", driver.title)
+print("URL:", driver.current_url)
+driver.quit()
+
+####### DAY - 14 ########
+
+# DATA DRIVEN TESTING
+
+Same test case run every time different sets of data
+
+openpyxl - we can work with excel file (.xlsx)  it is installed by using the command pip install openpyxl
+1. Read data from excel
+2. how to write data into excel
+3. Data driven test case
+
+
+
+import openpyxl
+
+# File - workbook -  sheets - Rows - cells
+
+file="C://Users//a250580//OneDrive - Syneos Health//Documents//samplefile.xlsx"
+workbook=openpyxl.load_workbook(file)
+sheet = workbook["Sheet1"]
+rows = sheet.max_row
+column=sheet.max_column
+
+# Read all the row and column
+
+for r in range(1,rows+1):  # outer
+    for c in range(1,column+1):
+        print(sheet.cell(r,c).value,end=",")
+    print()
+
+
+import openpyxl
+
+file="C://Users//a250580//OneDrive - Syneos Health//Documents//sample.xlsx"
+workbook=openpyxl.load_workbook(file)
+#sheet = workbook["Data"]  # Data also perfectly okay but we have data in all sheet then specify the sheet number
+sheet=workbook.active  # if we have only one single sheet at that time we use
+
+#reading
+#data=sheet.cell(r,c).value
+# writing
+#sheet.cell(r,c).value="welcome"
+
+for r in range(1,4):
+    for c in range(1,5):
+        sheet.cell(r, c).value = "name"
+workbook.save(file)
+
+"""
+
+# Multiple data
+import openpyxl
+
+file = "C://Users//a250580//OneDrive - Syneos Health//Documents//sample.xlsx"
+workbook = openpyxl.load_workbook(file)
+sheet = workbook.active
+
+sheet.cell(1, 1).value = "s.no"
+sheet.cell(1, 2).value = "name"
+sheet.cell(1, 3).value = "age"
+
+sheet.cell(2, 1).value = 1
+sheet.cell(2, 2).value = "pavi"
+sheet.cell(2, 3).value = "23"
+
+sheet.cell(3, 1).value = 2
+sheet.cell(3, 2).value = "praveen"
+sheet.cell(3, 3).value = "25"
+
+workbook.save(file)
+
+
+
 
 
 
