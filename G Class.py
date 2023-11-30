@@ -282,21 +282,51 @@ html element are head , html,h1,p-paragraph
 example
 <h1>                 My first heading</h1>  -font size  bigger
 <h6> -               font size smaller
-<a                   href="www.google.com" </a>          --- hyperlink
+<a href="https://www.w3schools.com">          --- hyperlink
+
+
 <img> -              image
 <scr> -              source
 <alt> --            alternative text  , height and weight are provided as attributes
 
+<img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">
+
+
+
 Absolute URL - External image on other website if has copyright we cannot able to download
 Relative URL - hosted in website , url does not include domain name
+
+
+HTML is Not Case Sensitive
+
 
 <b> body</b>
 
 <hr>     - horizontal rule , 	Defines a thematic change in the content
 <br>       in new line  , empty elements - it doesnt have a end tag(like <br>)
 <pre>    - Write inside the paragragh 
+
 style="text-align:center;"          - center alignment 
-style="background-color:yellow;"    - set bg color
+style="background-color:yellow;"    - set by color
+
+For eg:
+
+<!DOCTYPE html>
+<html>
+<body style="background-color:powderblue;">
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
+
+<p style="color:red;">This is a red paragraph.</p>
+
+-- FONT SIZE
+
+<p style="font-size:160%;">This is a paragraph.</p>
 
 
 HTML Formatting Elements
