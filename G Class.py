@@ -643,15 +643,27 @@ document.write
 -> in the form of dictionary(Key and value)
 -> html , css , dom is a script type of language
 
-"""
-import requests
 
-# = "https://api.openbrewerydb.org/breweries"
-url="http://fakerestapi.azurewebsites.net/api/v1/Books"
-r1 = requests.get(url)  # to set verify=false to disable SSL Verification
-r1.json()
-if r1.status_code == 200:
-    x = data[0]['id']
-    print(x)
+DAY - 8
+Why using python 
+- Python is a open source , easy to use , no cost , deployed the proj without any permission
+- In all OS that the code remains the same
+
+SELENIUM
+1. sele - IDE 
+  - Simplest framework does not require coding language 
+  - Supports all the OS and Browser
+
+2.Sele - RC
+  - Remote control , support all the os , browser
+  - use code for long time
+  
+3. webdriver
+ - supports languages , os , browser
+ 
+4. sele grid
+ - combines both ide and rc
+ 
+"""
 
 

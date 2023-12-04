@@ -1589,7 +1589,7 @@ for r in range(1,4):
         sheet.cell(r, c).value = "name"
 workbook.save(file)
 
-"""
+
 
 # Multiple data
 import openpyxl
@@ -1615,6 +1615,121 @@ workbook.save(file)
 
 
 
+import openpyxl
+from openpyxl.styles import PatternFill
+file="C://Users//a250580//OneDrive - Syneos Health//Documents//sample.xlsx"
 
 
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from Selenium import xl_utilities as xl
+from selenium.webdriver.support.ui import Select
 
+driver = webdriver.Chrome()
+driver.implicitly_wait(20)
+driver.get("https://moneycontrol.com/fixed-income/calculator/state-bank-of-india-sbi/fixed-deposit-calculator-SBI-BSB001.html")
+file="C://Users//a250580//OneDrive - Syneos Health//Documents//sample.xlsx"
+
+rows=xl.getRowCount(file,"Sheet1")
+for r in range(2,rows+1):  # 2 3 4 5
+   principal=xl.readData(file,"Sheet1",r,1)
+   roi=xl.readData(file,"Sheet1",r,2)
+   p1=xl.readData(file,"Sheet1",r,3)
+   p2=xl.readData(file, "Sheet1", r, 4)
+   fre=xl.readData(file,"Sheet1",r,5)
+   exp_mau=xl.readData(file,"Sheet1",r,6)
+
+  # Passing data to the application
+   driver.find_element(By.XPATH, "//input[@id='principal']").send_keys(principal)
+   driver.find_element(By.XPATH,"//input[@id='interest']").send_keys(roi)
+   driver.find_element(By.XPATH, "//input[@id='tenure']").send_keys(p1)
+   prd_ten=Select(driver.find_element(By.XPATH,"//select[@id='tenurePeriod']")) # passing select class
+   prd_ten.select_by_visible_text(p2)
+   drp_ele=Select(driver.find_element(By.XPATH,"//select[@id='frequency']"))
+   drp_ele.select_by_visible_text(fre)
+   driver.find_element(By.XPATH,"//img[@src='https://images.moneycontrol.com/images/mf_revamp/btn_calcutate.gif']").click()   # calculate button
+   act_mau=driver.find_element(By.XPATH,"//span[@id='resp_matval']/strong").text
+
+
+   if float(exp_mau)==float(act_mau):
+      print("test passed")
+      xl.writeData(file,"Sheet1",r,8,"Pass")
+      xl.fillGreenColor(file,"Sheet1",r,8)
+   else:
+      print("test failed")
+      xl.writeData(file, "Sheet1", r, 8, "Fail")
+      xl.fillRedColor(file, "Sheet1", r, 8)
+
+   driver.find_element(By.XPATH,"//img[@class='PL5']").click()
+   time.sleep(2)
+
+# XL Utility file
+# Reduce the complexcity
+# Reusuability
+
+time.sleep(10)
+driver.quit()
+
+
+# Db server - is a place where the data are stored
+# DB Client - light weight software .
+
+
+SQL 
+
+DDL   - Data Definition lan          -  Create,alter,drop,truncate
+DML   - Data Manipulation            - insert , update , delete
+DRL   - Data retrivel lan            - select
+TCL   - Transcation control          - commit , rollback
+DCL   - Data control                 - grant , revoke
+
+Selenium is meant for testing web app but we can able to interact with the db
+
+
+update_query="update mobile set model='po12' where name='poco'"
+delete_query="delete from mobile where rank1=4"
+import mysql.connector
+
+con = mysql.connector.connect(host="localhost", port=3306, user="root",password="Chem@9489", database="test1")
+curs = con.cursor()  # Create cursor
+#curs.execute(update_query)
+curs.execute(delete_query) # Execute
+con.commit()
+con.close()  # Corrected line to close the connection
+print("Finished")
+
+# Connection is not established
+
+delete_query="delete from mobile where rank1=4"
+
+try:
+    con = mysql.connector.connect(host="localhost", port=3307, user="root", password="Chem@9489", database="test1") #change port n.o for check
+    curs = con.cursor()  # Create cursor
+    # curs.execute(update_query)
+    curs.execute(delete_query)  # Execute
+    con.commit()
+    con.close()  # Corrected line to close the connection
+except:
+    print("Connection unsuccessful")
+
+print("Finished")
+
+
+import mysql.connector
+con = mysql.connector.connect(host="localhost", port=3306, user="root", password="Chem@9489", database="test1") #change port n.o for check
+curs = con.cursor()  # Create cursor
+curs.execute("select * from mobile")  # Execute
+for row in curs:
+    print(row[0],row[1],row[2],row[3],row[4])
+con.commit()
+con.close()
+"""
+# only print the cursor value
+import mysql.connector
+con = mysql.connector.connect(host="localhost", port=3306, user="root", password="Chem@9489", database="test1") #change port n.o for check
+curs = con.cursor()  # Create cursor
+curs.execute("select * from mobile")  # Execute
+print(curs)
+con.commit()
+con.close()
