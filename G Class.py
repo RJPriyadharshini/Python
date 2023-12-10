@@ -667,3 +667,12 @@ SELENIUM
 """
 
 
+
+stu={"names":["Pavi","Praveen","Janagi","Govind"] , "marks":[94,90,85,75] , "std":[5,7,8,4]}
+print(stu)
+stu["marks"][0]=96
+print(stu.keys())
+print(stu.values())
+print(stu.items())   # combo of key and value
+stu.popitem()
+print(stu)

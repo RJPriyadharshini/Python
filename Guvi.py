@@ -1,4 +1,4 @@
-"""import datetime
+import datetime
 
 def fun():
     f = open("guvi.txt", "w")
@@ -12,15 +12,14 @@ def fun():
         print("Error")
 
 fun()
-cd
+
 """
-
-
-"""Shape	Area	Perimeter
+Shape	Area	Perimeter
 Circle	A = π × r2	Circumference = 2πr"""
 
 # OOPS CONCEPT
-"""Create a python program called circle with constructor which will take a list an argument
+"""
+Create a python program called circle with constructor which will take a list an argument
 From the given list create two class methods area and perimeter which will belong to calculate area and perimeter
 
 class Circle:
@@ -44,7 +43,7 @@ for radius in list:
     print(f"Radius: {radius}")
     print(f"Area: {circle_obj.area()}")
     print(f"Perimeter: {circle_obj.perimeter()}")
-    print("------")
+    
 OUTPUT
 
 Radius: 10
@@ -82,7 +81,6 @@ Perimeter: 2204.982
 
 # TASK - 9
 
-
 data =[10, 501, 22, 37, 100, 999, 87, 351]
 result = filter(lambda x:x>4,data)
 print(list)
@@ -91,7 +89,7 @@ OUTPUT
 [10, 501, 22, 37, 100, 999, 87, 351]
 
 
-# 2. Write a python code using lambda function to check every element of an list is interger or string
+# 2. Write a python code using lambda function to check every element of an list is integer or string
 
 data = [10, 501, 22, 37, 100, 999, 87, 351,"KING"]
 check_type = lambda x: "Integer" if isinstance(x, int) else "String"    # Check int or string using lambda function
@@ -130,7 +128,7 @@ print(fibonacci(50))
 
 # EMAIL ADDRESS
 def is_valid_email(email):
-    if email.count('@') != 1:   # Counting '@' Symbol:
+    if email.count('@') != 1:                   # Counting '@' Symbol:
         return False
     local_part, domain_part = email.split('@')  #Splitting Local Part and Domain Part
     if not local_part or not domain_part:       #Checking Non-Empty Parts:
@@ -274,7 +272,7 @@ print(f"Is '{password2}'  valid - {is_password(password2)}")
 OUTPUT
 Is 'Hacker0001'  valid - False
 Is 'crazy*Mind123'  valid - True
-"""
+
 
 import random
 class Audio:
@@ -321,6 +319,6 @@ print(f"Average rating for Playlist 2: {average_rating2}")
 
 
 
-
+"""
 
 

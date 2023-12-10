@@ -1,22 +1,25 @@
 # EXCEPTIONS
-"""try:
+
+
+try:
  amt=(int(input("enter amount to withdraw: ")))
-except:
- print("error, enter numbers only")
+except Exception as E:
+ print(E)
 else:
  print(f'{amt}')
- print("Withdraw Sucessfully")
+ if amt>500:
+     print("Withdraw Sucessfully")
+ else:
+     print("enter min withdrawl amount")
 
 
-
+"""
 amt=input("enter amount to withdraw: ")
 if amt.isnumeric():
  amt=int(amt)
  print("withdraw sucessfully")
 else:
  print("error")
-
-
 
 
 try:
@@ -30,8 +33,6 @@ else:
  print("None")
 finally:
  print("Finally Executed")
-
-
 
 num=input("enter num: ")
 if type(num)!=int:
@@ -51,17 +52,9 @@ for x in exp:
     assert x>2030, 'Alert ****** expired medicine **** ALERT'
     print(f' {x} - market')
 
+
+
 """
-
-
-import time
-time.clock()
-
-
-
-
-
-
 
 
 

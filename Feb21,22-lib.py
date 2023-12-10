@@ -183,26 +183,28 @@ if num==5:
 
 # REGULAR EXPRESSIONS
 
-"""A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.
+"""
+A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.
 
 RegEx can be used to check if a string contains the specified search pattern. 
 
 findall  -  Returns a list containing all matches
 search  -   Returns a Match object if there is a match anywhere in the string
 split    -  Returns a list where the string has been split at each match
-sub      -   Replaces one or many matches with a string """
+sub      -  Replaces one or many matches with a string
+"""
 
 import re
 x="Hi hello python is used for various purposes used for an development"
-print(re.findall("for",x))   # print all the occurence of for
+print(re.findall("for",x))    # print all the occurence of for
 print(re.findall("mam",x))    # no name called mam it returns empty
 
 y= "python is an intrepretter language used for an development"
 print(re.search("t",y))        # in which position it present
 
-print(re.split("an",y))   # wherever an present it split the word
+print(re.split("an",y))       # wherever an present it split the word
 
 print(re.split("an",y,1))     # only split the first occurence of the word
 
-print(re.sub("an","hi",y))       # replace the word
+print(re.sub("an","hi",y))    # replace the word
 

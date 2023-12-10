@@ -50,7 +50,7 @@ Locators
   4.Partial Link text
   5.ClassName
   6.TagName
-  
+
 Customized Locators - CSS SELECTOR AND XPATH
 
 
@@ -94,7 +94,7 @@ driver.find_element(By.LINK_TEXT,"Register").click()
 time.sleep(50)
 driver.close()"""
 
-#find elements - find all the elements with same tag  - multiple web elements
+# find elements - find all the elements with same tag  - multiple web elements
 
 """sliders=driver.find_elements(By.CLASS_NAME,'homeslider-container')
 print(len(slider))   -> print the total len of the slider 
@@ -102,7 +102,7 @@ print(len(slider))   -> print the total len of the slider
 links=driver.find_elements(By.TAG_NAME,'a')
 print(len(links))   total num of links present """
 
-#CSS SELECTORS (tag is optional)
+# CSS SELECTORS (tag is optional)
 
 """import time
 from selenium import webdriver
@@ -142,8 +142,8 @@ driver.close()   """
 """XPATH (works based on DOM)
 
 -> Finding an element in webpage
--> finding element using HTML DOM Structure
--> navigate through elements and attributes
+-> Finding element using HTML DOM Structure
+-> Navigate through elements and attributes
 -> address of the element
 
 DOM-Document object model
@@ -177,8 +177,8 @@ Absolute xpath
 
 relative
  //tagname[@Attribute='Value']
- 
- 
+
+
 selectors hub - extension used in chrome,browser (to identify tags)
 
 Interview question:
@@ -334,7 +334,6 @@ driver.quit()
 time.sleep(100)
 """
 
-
 # DAY - 5
 
 
@@ -363,8 +362,6 @@ Conditional commands
 
 conditional elements done by web_elements
 
-
-
 BROWER COMMANDS
 
 Close()  -  simply close the browser but backend process is running , close one browser at a time
@@ -388,10 +385,7 @@ driver.get("https://opensource-demo.orangehrmlive.com/")
 print(driver.title)
 print(driver.current_url)
 print(driver.page_source)
-
-
 driver.quit()   """
-
 
 """driver.get("https://demo.nopcommerce.com/register")
 search=driver.find_element(By.XPATH,"//input[@id='small-searchterms']")
@@ -471,7 +465,7 @@ print(len(ele))  # not show any exception
 time.sleep(10)
 driver.quit() 
 
-######text vs get_attribute(values)#####
+######  text vs get_attribute(values)   #####
 
 driver.get("https://demo.nopcommerce.com/")
 email=driver.find_element(By.XPATH,"//input[@id-'Email']")
@@ -480,7 +474,7 @@ email.send_keys("abc@gmail.com")
 print("result of text",email.text)   # Print nothing
 print("result of get_attribute",email.get_attribute('value'))
 
-#<input id="123"  name="xyz" > Email:</input>  .... Email is inner text
+# <input id="123"  name="xyz" > Email:</input>  .... Email is inner text
 # Text - returns Inner text of the element
 # get_attribute - returns values of any attribute of web element
 
@@ -488,7 +482,6 @@ log=driver.find_element(By.XPATH,"//button[normalize-space()='Log in']")
 print("result of text",log.text)
 print("result of get_attribute",log.get_attribute('value'))
 print("result of get_attribute",log.get_attribute('type')) """
-
 
 ####### DAY -6 ########
 
@@ -510,8 +503,10 @@ Disadvantage
 ADVANTAGE
 
 -> Single statement
--> performance will not be reduced (if the element is available within the time it proceed to execute further
+-> performance will not be reduced (if the element is available within the time it proceed to execute further)
+
 DISADVANTAGE
+
 -> If the element is not available within the time mentioned , still there is a chance of getting exception
 
 # Amount of time driver should wait to find the element(if you call next condition it perform
@@ -530,7 +525,6 @@ Adv
 
 Dis 
 -> Multiple places enter feels some difficulty
-
 
 import time
 from selenium import webdriver
@@ -554,7 +548,6 @@ mywait.click()# condition is stastified it will execute
 #If the condition is not true until it wait for that element
 time.sleep(10)
 driver.quit() """
-
 
 ####DAY - 7 #######
 
@@ -659,7 +652,7 @@ driver = webdriver.Chrome()
 driver.implicitly_wait(20)
 driver.get("http://www.deadlinkcity.com/")
 
-all_links=driver. find_elements(By.TAG_NAME,'a')
+all_links=driver.find_elements(By.TAG_NAME,'a')
 count=0
 
 for link in all_links:
@@ -690,7 +683,7 @@ driver.get("https://www.opencart.com/index.php?route=account/register")
 
 # Find the dropdown element
 
-drp_coun_els = driver.find_element(By.XPATH, "//select[@id='input-country']").click()
+drp_coun_els = driver.find_element(By.XPATH,"//select[@id='input-country']").click()
 drp_coun = Select(drp_coun_els)
 
 #select option from dropdown
@@ -811,7 +804,7 @@ driver.implicitly_wait(20)
 driver.get("https://www.selenium.dev/selenium/docs/api/java/index.html?overview-summary.html")
 driver.switch_to.frame("packageListFrame")
 driver.find_element(By.LINK_TEXT,"org.openqa.selenium").click()
-driver.switch_to.default_content()   #go back to main page [driver cannot move one frame to another frame]
+driver.switch_to.default_content()          #go back to main page [driver cannot move one frame to another frame]
 driver.switch_to.frame("packageFrame")
 driver.find_element(By.LINK_TEXT,"WebDriver").click()
 driver.switch_to.default_content() 
@@ -850,7 +843,7 @@ driver.quit()
 switch to window
 
 current_window_handle - window id of single browser window
-window_handles - window id of multiple browser windows 
+window_handles        - window id of multiple browser windows 
 
 import time
 from selenium import webdriver
@@ -912,11 +905,15 @@ driver.quit()
 
 
 ###WEB TABLE####
+
  1. Static web table
  2. Dynamic webtable
- td - table data
- 
- 
+ td - table cell
+ tr - table row
+ th -table header
+
+
+
 
 import time
 from selenium import webdriver
@@ -945,7 +942,7 @@ print("Specific element:", specific)
 
 for i in range(2, num_rows + 1):          #2,3,4,5,6,7,8
     for j in range(1, num_columns + 1):    # 1,2   1,3  1,4
-        specific = driver.find_element(By.XPATH, "//table[@name='BookTable']/tbody/tr["+str(i)+"]/td["+str(j)+"]").text         #1st convert to str , enter values in double quotes , add + before and after the value
+        specific = driver.find_element(By.XPATH, "//table[@name='BookTable']/tbody/tr["+str(i)+"]/td["+str(j)+"]").text     #1st convert to str , enter values in double quotes , add + before and after the value
         print(specific)
     print()
 
@@ -978,7 +975,6 @@ DATE PICKER
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
 driver=webdriver.Chrome()
 driver.implicitly_wait(20)
 driver.get("https://jqueryui.com/datepicker/")
@@ -1013,10 +1009,10 @@ driver.quit()
 
 Mouse operations
 
-1. ActionChains   -  move_to_element(element)
-2. Right click    -  context_click(element)
-3. Double click   -  double_click(element)
-4. Drag and drop  -  drag_and_drop(source,target)
+1. ActionChains(mouse hover)     -  move_to_element(element)
+2. Right click                   -  context_click(element)
+3. Double click                  -  double_click(element)
+4. Drag and drop                 -  drag_and_drop(source,target)
 
 drag_and_drop_by_offset   - for range 
 
@@ -1037,10 +1033,10 @@ admin=driver.find_element(By.XPATH,"//*[@id='menu_admin_viewAdminModule']/b")
 user_man=driver.find_element(By.XPATH,"//*[@id='menu_admin_UserManagement']")
 users=driver.find_element(By.XPATH,"//*[@id='menu_admin_viewSysytemUsers']")
 
-#MOUSEHOVER
+#####  MOUSEHOVER  #####
 
 act=ActionChains(driver)   # pass driver
-#mouseHover
+# mouseHover
 # Perform is one method by that only action will execute
 act.move_to_element(admin).move_to_element(user_man).move_to_element(users).click().perform()
 driver.quit()
@@ -1056,7 +1052,7 @@ driver = webdriver.Chrome()
 driver.implicitly_wait(10)
 driver.get("https://swisnl.github.io/jQuery-contextMenu/demo.html")
 Button=driver.find_element(By.XPATH,"//span[normalize-space()='right click me']")
-#right click
+# right click
 act=ActionChains(driver)
 act.context_click(Button).perform()
 driver.find_element(By.XPATH,"/html/body/ul/li[1]").click()
@@ -1093,7 +1089,7 @@ if field1.text==field2.text:
     print("matched")
 else:
     print("unmatched")
-    
+
 time.sleep(2)  # Add a small delay to see the changes before quitting the browser
 
 driver.quit()
@@ -1252,7 +1248,6 @@ driver.quit()
 
 """SKIPPED THE TOPIC - FILE DOWNLOAD """
 
-
 """
 
 # UPLOAD THE FILE SCENARIO
@@ -1315,8 +1310,7 @@ driver.quit()
 # How to capture the screenshot of the web page
      1. get_screenshot_as_file
      2. save_screenshot
-     3. get_screenshot_as_png
-     4. get_screenshot_as_png    # save snap as binary format
+     3. get_screenshot_as_png    # save snap as binary format
 
 import time
 from selenium import webdriver
@@ -1363,7 +1357,7 @@ except Exception as e:
 
 finally:
     driver.quit()
-    
+
 
 # How to capture the screenshot of the web page
 
@@ -1396,7 +1390,7 @@ driver.quit()
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import os   # operating sysytem
+import os                                 # operating sysytem
 from selenium.webdriver import Keys
 
 driver = webdriver.Chrome()
@@ -1416,7 +1410,7 @@ reg=Keys.CONTROL+Keys.RETURN
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import os   # operating sysytem
+import os   
 from selenium.webdriver import Keys
 
 driver = webdriver.Chrome()
@@ -1455,7 +1449,7 @@ driver.quit()
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import os   # operating sysytem
+import os   
 
 
 driver = webdriver.Chrome()
@@ -1492,20 +1486,17 @@ print("size of all deleted cookies:",len(cookies))
 driver.quit()
 
 # HEADLESS MODE
-Dont see any application in front end but the script run in backend
+Dont see any application actions in front end but the script run in backend
 
 Advantage
 1. Do multiple task
-2. Excecution will be fast and reduce time
+2. Execution will be fast and reduce time
 
 Disadvantage
 
 1. Do know the application flow
 
-
 # Different from browser to browser
-
-
 
 from selenium import webdriver
 
@@ -1548,11 +1539,10 @@ driver.quit()
 Same test case run every time different sets of data
 
 openpyxl - we can work with excel file (.xlsx)  it is installed by using the command pip install openpyxl
+
 1. Read data from excel
 2. how to write data into excel
 3. Data driven test case
-
-
 
 import openpyxl
 
@@ -1577,7 +1567,7 @@ import openpyxl
 file="C://Users//a250580//OneDrive - Syneos Health//Documents//sample.xlsx"
 workbook=openpyxl.load_workbook(file)
 #sheet = workbook["Data"]  # Data also perfectly okay but we have data in all sheet then specify the sheet number
-sheet=workbook.active  # if we have only one single sheet at that time we use
+sheet=workbook.active      # if we have only one single sheet at that time we use
 
 #reading
 #data=sheet.cell(r,c).value
@@ -1591,7 +1581,7 @@ workbook.save(file)
 
 
 
-# Multiple data
+# Multiple data adding
 import openpyxl
 
 file = "C://Users//a250580//OneDrive - Syneos Health//Documents//sample.xlsx"
@@ -1665,8 +1655,8 @@ for r in range(2,rows+1):  # 2 3 4 5
    time.sleep(2)
 
 # XL Utility file
-# Reduce the complexcity
-# Reusuability
+# Reduce the complexity
+# Reusability
 
 time.sleep(10)
 driver.quit()
@@ -1679,17 +1669,17 @@ driver.quit()
 SQL 
 
 DDL   - Data Definition lan          -  Create,alter,drop,truncate
-DML   - Data Manipulation            - insert , update , delete
-DRL   - Data retrivel lan            - select
-TCL   - Transcation control          - commit , rollback
-DCL   - Data control                 - grant , revoke
+DML   - Data Manipulation            -  insert , update , delete
+DRL   - Data retrival lan            -  select
+TCL   - Transaction control          -  commit , rollback
+DCL   - Data control                 -  grant , revoke
 
 Selenium is meant for testing web app but we can able to interact with the db
 
 
 update_query="update mobile set model='po12' where name='poco'"
 delete_query="delete from mobile where rank1=4"
-import mysql.connector
+import mysql.connector    # import using pip
 
 con = mysql.connector.connect(host="localhost", port=3306, user="root",password="Chem@9489", database="test1")
 curs = con.cursor()  # Create cursor
@@ -1727,7 +1717,9 @@ con.close()
 """
 # only print the cursor value
 import mysql.connector
-con = mysql.connector.connect(host="localhost", port=3306, user="root", password="Chem@9489", database="test1") #change port n.o for check
+
+con = mysql.connector.connect(host="localhost", port=3306, user="root", password="Chem@9489",
+                              database="test1")  # change port n.o for check
 curs = con.cursor()  # Create cursor
 curs.execute("select * from mobile")  # Execute
 print(curs)
