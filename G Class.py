@@ -664,8 +664,6 @@ SELENIUM
 4. sele grid
  - combines both ide and rc
  
-"""
-
 
 
 stu={"names":["Pavi","Praveen","Janagi","Govind"] , "marks":[94,90,85,75] , "std":[5,7,8,4]}
@@ -676,3 +674,37 @@ print(stu.values())
 print(stu.items())   # combo of key and value
 stu.popitem()
 print(stu)
+
+
+JAVASCRIPT
+- Versatile and widely used programming lang
+- Plays major role in web development
+- Mainly in front-end development
+- Created by Brendan Eich in 1995
+- add interactivity and dynamic behaviour to static web pages
+- dynamically typed language
+
+variables
+ - Declare variables in js using "var", "let" or "const"
+ - "let" and "const" are introduced in ECMAScript and "var" is block-scoping behaviour
+
+let a=10    
+// let keyword where the value can be changeable
+a=12
+console.log(a);
+
+const b=15.2 ,c=11.8;
+// const keyword that the value is not changeable
+console.log(b+c)
+
+
+// logical opeartors
+
+-and (&&)
+- or (||)
+- not (!)
+
+for comments - //
+
+"""
+

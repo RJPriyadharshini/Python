@@ -52,8 +52,6 @@ for x in exp:
     assert x>2030, 'Alert ****** expired medicine **** ALERT'
     print(f' {x} - market')
 
-
-
 """
 
 
